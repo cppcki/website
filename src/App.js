@@ -1,18 +1,17 @@
 import './App.css';
-import {Header} from './components';
+
+import { 
+  Header 
+} from './components';
 
 function App() {
   return (
     <div className="App">
-      <div className='container'>
-        <div className='left'>
-          hi
-          <Header/>
-          <Header/>
-          <Header/>
-          <Header/>
+      <div className="container">
+        <div className="left">
+          <Header />
         </div>
-        <div className='right'>
+        <div className="right">
           mom
         </div>
       </div>
