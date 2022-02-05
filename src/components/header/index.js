@@ -9,12 +9,15 @@ export function Header() {
       </div>
       <div className='header-right'>
         <div className="header-name">
-          circle k
+        circle k
         </div>
         <div className="header-school">
           cal poly pomona
         </div>
       </div>
     </div>
+
   );
 }
+
+
