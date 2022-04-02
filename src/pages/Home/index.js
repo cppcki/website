@@ -36,7 +36,7 @@ export function Home() {
         new Array(PARTICLES))
         .map(x => Math.floor(Math.random() * (max - min) + min));
     }
-    const delays = getRandom(10, 20);
+    const delays = getRandom(2, 10);
     const durations = getRandom(30, 50);
     const foods = new Array(PARTICLES).fill(1).map((_, index) => {
       return {
@@ -46,10 +46,10 @@ export function Home() {
       }
     });
 
-    return foods.map((props) => {
+    return foods.map((props, index) => {
       const { token } = props;
       return (
-        <Particle {...props}>{token}</Particle>
+        <Particle key={index} {...props}>{token}</Particle>
       )
     });
   }, []);

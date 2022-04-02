@@ -24,7 +24,7 @@ const frames = keyframes`
  } 
 
  to {
-  transform: translateY(calc(-100vh + -100%)) rotate(20deg);
+  transform: translateY(calc(-100vh + -100%)) rotate(360deg);
  }
 `;
 
@@ -39,7 +39,7 @@ export const Particles = styled.div`
 `;
 
 export const Particle = styled.div`
-  animation: ${frames} 10s linear infinite;
+  animation: ${frames} 1s linear infinite;
   align-self: flex-end;
   transform: translateY(100%);
   width: 20px;
