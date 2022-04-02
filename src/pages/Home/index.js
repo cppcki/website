@@ -1,4 +1,5 @@
 import { Anchor, Header, Navbar } from "../../components";
+import { Media } from "../../components/Media";
 
 import {
   Wrapper,
@@ -8,7 +9,6 @@ import {
   Motto,
   Content,
   Description,
-  Image
 } from "./styles";
 
 function importAll(r) {
@@ -37,13 +37,14 @@ export function Home() {
               leadership development, and friendship organization in the world.
             </Description>
             <Anchor text="learn more" href="https://forms.gle/RvJPvBacXExm34kP8"/>
+            <Media/>
           </Content>
         </Left>
         <Right>
           {images.map((image, index) => {
             return (
               <img key={index} src={image} alt="memories"/>
-            )
+            );
           })}
         </Right>
       </Container>

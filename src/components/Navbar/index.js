@@ -19,7 +19,7 @@ export function Navbar() {
           <Link to="/resources">Resources</Link>
         </li>
         <li>
-          <Link to="/join">Join</Link>
+          <a href="https://forms.gle/RvJPvBacXExm34kP8">Join</a>
         </li>
       </Content>
     </Container>

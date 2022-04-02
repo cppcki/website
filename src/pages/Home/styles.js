@@ -6,10 +6,15 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
   align-content: center;
   height: 100%;
+
+  @media (max-width: 650px) {
+    align-content: unset;
+  } 
 `;
 
 export const Content = styled.div`
@@ -19,6 +24,14 @@ export const Content = styled.div`
 export const Left = styled.div`
   width: 30%;
   margin: 5% 0 5% 0;
+
+  @media (max-width: 1330px) {
+    width: 50%;
+  }
+
+  @media (max-width: 650px) {
+    width: 100%
+  }
 `;
 
 export const Right = styled.div`
@@ -26,6 +39,8 @@ export const Right = styled.div`
   display: flex;
   flex-wrap: wrap;
   line-height: 0;
+  overflow: hidden;
+  max-height: 90%;
   gap: 5px;
   align-self: center;
   margin: 5% 5% 5% 0;
@@ -37,6 +52,36 @@ export const Right = styled.div`
     object-fit: cover;
     vertical-align: bottom;
   }
+
+  @media (max-width: 1825px) {
+    & > img {
+      height: 16vh;
+    }
+  }
+
+  @media (max-width: 1721px) {
+    & > img {
+      height: 15vh;
+    }
+  }
+
+  @media (max-width: 1500px) {
+    & > img {
+      height: 14.5vh;
+    }
+  }
+
+  @media (max-width: 1300px) {
+    & > img {
+      height: 13vh;
+    }
+  }
+
+  @media (max-width: 650px) {
+    width: 100%;
+    flex: none;
+    margin: 0;
+  }
 `;
 
 export const Motto = styled.div`
@@ -44,11 +89,9 @@ export const Motto = styled.div`
   font-size: 60px;
   text-transform: uppercase;
   font-weight: bolder;
-`
+`;
 
-export const Description = styled.p`
-  
-`
+export const Description = styled.p``;
 
 export const Image = styled.div`
   width: 100%;

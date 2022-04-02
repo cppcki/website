@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  & > a:hover {
+    color: ${props => props.theme.hue.blue};
+  }
   &:hover > a svg {
     fill: ${props => props.theme.hue.blue};
   }

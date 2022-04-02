@@ -4,7 +4,7 @@ export function Resources() {
   return (
     <div>
       <Navbar/>
-      resources
+      imagine having resources? wat are we rich?
     </div>
   );
 }

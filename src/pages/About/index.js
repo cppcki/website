@@ -4,7 +4,7 @@ export function About() {
   return (
     <div>
       <Navbar/>
-      about
+      how about these deez nuts
     </div>
   );
 }
