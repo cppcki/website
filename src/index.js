@@ -5,6 +5,12 @@ import {
   Routes,
   BrowserRouter
 } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+
+import { 
+  GlobalStyle, 
+  DefaultTheme 
+} from "./assets/styles";
 
 import { 
   Home,
@@ -17,14 +23,17 @@ const root = document.getElementById("root");
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/resources" element={<Resources/>}/>
-        <Route path="/join" element={<Join/>}/>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={DefaultTheme}>
+      <GlobalStyle/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/resources" element={<Resources/>}/>
+          <Route path="/join" element={<Join/>}/>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>,
   root
 );
