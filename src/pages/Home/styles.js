@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -11,10 +11,42 @@ export const Container = styled.div`
   align-items: stretch;
   align-content: center;
   height: 100%;
+  z-index: 1;
 
   @media (max-width: 650px) {
     align-content: unset;
   } 
+`;
+
+const frames = keyframes`
+ from {
+  transform: translateY(100%) rotate(-50deg);
+ } 
+
+ to {
+  transform: translateY(calc(-100vh + -100%)) rotate(20deg);
+ }
+`;
+
+export const Particles = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  z-index: -1;
+`;
+
+export const Particle = styled.div`
+  animation: ${frames} 10s linear infinite;
+  align-self: flex-end;
+  transform: translateY(100%);
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  animation-delay: ${props => props.delay}s;
+  animation-duration: ${props => props.duration}s;
 `;
 
 export const Content = styled.div`
@@ -81,6 +113,7 @@ export const Right = styled.div`
     width: 100%;
     flex: none;
     margin: 0;
+    gap: 0;
   }
 `;
 

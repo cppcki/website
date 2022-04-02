@@ -17,7 +17,7 @@ export const Content = styled.div`
 export const Heading = styled.div`
   color: ${props => props.theme.hue.gold};
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 200;
   text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -27,7 +27,6 @@ export const Heading = styled.div`
 export const Subheading = styled.div`
   color: ${props => props.theme.hue.blue};
   font-size: 20px;
-  font-weight: 400;
   text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;

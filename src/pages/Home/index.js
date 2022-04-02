@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Anchor, Header, Navbar } from "../../components";
 import { Media } from "../../components/Media";
 
@@ -9,6 +10,8 @@ import {
   Motto,
   Content,
   Description,
+  Particles,
+  Particle,
 } from "./styles";
 
 function importAll(r) {
@@ -20,17 +23,49 @@ const images = importAll(
   false, /\.(png|jpe?g|svg)$/)
 );
 
+const PARTICLES = 10;
+
 export function Home() {
+
+  const particle = useMemo(() => {
+
+    const tokens = ["🍙", "🍥", "🍱", "🍤", "🍲", "🍘", "🍛", "🍡", "🍵"];
+
+    const getRandom = (min, max) => {
+      return Array.from(
+        new Array(PARTICLES))
+        .map(x => Math.floor(Math.random() * (max - min) + min));
+    }
+    const delays = getRandom(10, 20);
+    const durations = getRandom(30, 50);
+    const foods = new Array(PARTICLES).fill(1).map((_, index) => {
+      return {
+        token: tokens[Math.floor(Math.random() * tokens.length)],
+        delay: delays[index],
+        duration: durations[index]
+      }
+    });
+
+    return foods.map((props) => {
+      const { token } = props;
+      return (
+        <Particle {...props}>{token}</Particle>
+      )
+    });
+  }, []);
 
   return (
     <Wrapper>
+      <Particles>
+        {particle}
+      </Particles>
       <Container>
         <Left>
           <Navbar/>
           <Content>
             <Header/>
             <Motto>
-              We love service so matcha
+              We love service so matcha 🍵
             </Motto>
             <Description>
               Become part of one of the largest collegiate community service, 

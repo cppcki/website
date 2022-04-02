@@ -6,7 +6,11 @@ export const Container = styled.ul`
   align-items: center;
   padding-inline-start: 0;
   & > li {
-    margin-right: 20px;
+    & > a svg {
+      width: 20px;
+      height: 20px;
+    }
+    margin-right: 35px;
     list-style-type: none;
   }
   & > li:hover {
