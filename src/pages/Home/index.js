@@ -1,5 +1,4 @@
 import { Anchor, Header, Navbar } from "../../components";
-import Induction2021 from "../../assets/images/induction2021.jpg";
 
 import {
   Wrapper,
@@ -12,7 +11,17 @@ import {
   Image
 } from "./styles";
 
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+const images = importAll(
+  require.context("../../assets/images/events/", 
+  false, /\.(png|jpe?g|svg)$/)
+);
+
 export function Home() {
+
   return (
     <Wrapper>
       <Container>
@@ -31,7 +40,11 @@ export function Home() {
           </Content>
         </Left>
         <Right>
-          <Image img={Induction2021}></Image>
+          {images.map((image, index) => {
+            return (
+              <img key={index} src={image} alt="memories"/>
+            )
+          })}
         </Right>
       </Container>
     </Wrapper>

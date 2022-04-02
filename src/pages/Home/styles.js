@@ -13,12 +13,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: left;
-  height: 100%;
-  width: 100%; */
   margin: 5%;
 `;
 
@@ -29,8 +23,20 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 0;
+  gap: 5px;
+  align-self: center;
   margin: 5% 5% 5% 0;
-  background-color: red;
+  & > img {
+    width: auto;
+    height: 17vh;
+    flex-grow: 1;
+    max-height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+  }
 `;
 
 export const Motto = styled.div`
