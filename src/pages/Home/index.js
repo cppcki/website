@@ -29,7 +29,7 @@ export function Home() {
 
   const particle = useMemo(() => {
 
-    const tokens = ["🍙", "🍥", "🍱", "🍤", "🍲", "🍘", "🍛", "🍡", "🍵"];
+    const tokens = ["🍙", "🍥", "🍱", "🍤", "🍲", "🍘", "🍛", "🍡", "🍵", "🍣"];
 
     const getRandom = (min, max) => {
       return Array.from(
@@ -65,7 +65,10 @@ export function Home() {
           <Content>
             <Header/>
             <Motto>
-              We love service so matcha 🍵
+              <div style={{ fontSize: "40px"}}>
+                We Love Service
+              </div>
+               so MATCHA!
             </Motto>
             <Description>
               Become part of one of the largest collegiate community service, 

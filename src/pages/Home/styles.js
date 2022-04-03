@@ -119,10 +119,12 @@ export const Right = styled.div`
 `;
 
 export const Motto = styled.div`
-  margin: 3% 0 0 0;
-  font-size: 60px;
+  margin: 5% 0 10% 0;
+  font-size: 70px;
+  line-height: 1;
+  font-family: 'Permanent Marker', cursive;
   text-transform: uppercase;
-  font-weight: bolder;
+  font-weight: bold;
 `;
 
 export const Description = styled.p``;
