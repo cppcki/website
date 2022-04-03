@@ -37,7 +37,7 @@ export function Home() {
         .map(x => Math.floor(Math.random() * (max - min) + min));
     }
     const delays = getRandom(2, 10);
-    const durations = getRandom(30, 50);
+    const durations = getRandom(10, 50);
     const foods = new Array(PARTICLES).fill(1).map((_, index) => {
       return {
         token: tokens[Math.floor(Math.random() * tokens.length)],

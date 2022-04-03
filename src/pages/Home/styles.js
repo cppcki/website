@@ -42,9 +42,10 @@ export const Particle = styled.div`
   animation: ${frames} 1s linear infinite;
   align-self: flex-end;
   transform: translateY(100%);
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
+  width: 150px;
+  height: 150px;
+  font-size: 150px;
+  filter: blur(15px);
   animation-delay: ${props => props.delay}s;
   animation-duration: ${props => props.duration}s;
 `;
