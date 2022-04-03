@@ -31,6 +31,8 @@ const frames = keyframes`
 export const Particles = styled.div`
   position: absolute;
   height: 100%;
+  top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
