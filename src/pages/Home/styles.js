@@ -156,11 +156,7 @@ export const Motto = styled.div`
   }
 
   @media (max-width: 390px) {
-    font-size: 56px;
-  }
-
-  @media (max-width: 375px) {
-    font-size: 52px;
+    font-size: 50px;
   }
 `;
 
