@@ -1,12 +1,12 @@
 import { useMemo } from "react";
-import { Anchor, Header, Navbar } from "../../components";
-import { Media } from "../../components/Media";
+import { Anchor, Header, Navbar, Media } from "../../components";
 
 import {
   Wrapper,
   Container,
   Left,
   Right,
+  Premotto,
   Motto,
   Content,
   Description,
@@ -65,9 +65,9 @@ export function Home() {
           <Content>
             <Header/>
             <Motto>
-              <div style={{ fontSize: "40px"}}>
+              <Premotto>
                 We Love Service
-              </div>
+              </Premotto>
                so MATCHA!
             </Motto>
             <Description>

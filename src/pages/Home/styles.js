@@ -118,14 +118,67 @@ export const Right = styled.div`
   }
 `;
 
+
 export const Motto = styled.div`
   margin: 5% 0 10% 0;
-  font-size: 70px;
+  font-size: 80px;
   line-height: 1;
   font-family: 'Permanent Marker', cursive;
   text-transform: uppercase;
   font-weight: bold;
+
+  @media (max-width: 1825px) {
+    font-size: 70px;
+  }
+
+  @media (max-width: 1721px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 1500px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 1300px) {
+    font-size: 70px;
+  }
+
+  @media (max-width: 912px) {
+    font-size: 59px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 57px;
+  }
+
+  @media (max-width: 390px) {
+    font-size: 56px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 52px;
+  }
 `;
+
+export const Premotto = styled.div`
+  font-size: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 390px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 35px;
+  }
+`
 
 export const Description = styled.p``;
 
