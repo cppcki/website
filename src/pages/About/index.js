@@ -5,6 +5,7 @@ export function About() {
     <div>
       <Navbar/>
       how about these deez nuts
+      bob was here.
     </div>
   );
 }
