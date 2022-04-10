@@ -5,6 +5,7 @@ export function Resources() {
     <div>
       <Navbar/>
       imagine having resources? wat are we rich?
+      thats deep
     </div>
   );
 }
