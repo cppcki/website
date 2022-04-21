@@ -1,8 +1,6 @@
-import './App.css';
+import "./App.css";
 
-import { 
-  Header 
-} from './components';
+import { Header, Media } from "./components";
 
 function App() {
   return (
@@ -10,10 +8,9 @@ function App() {
       <div className="container">
         <div className="left">
           <Header />
+          <Media />
         </div>
-        <div className="right">
-          mom
-        </div>
+        <div className="right">pog</div>
       </div>
     </div>
   );
