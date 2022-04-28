@@ -1,11 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 import { 
   Anchor, 
   Media,
   Footer,
   Navbar,
-  Events
+  Events,
 } from "components";
 
 import Montage from "../../assets/media/montage.mp4";
@@ -20,8 +20,6 @@ import {
   Premotto,
   Container
 } from "./styles";
-
-
 
 export function Home() {
 
