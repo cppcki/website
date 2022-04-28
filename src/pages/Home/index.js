@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Anchor, Header, Navbar, Media } from "../../components";
+import { Anchor, Header, Navbar, Media, Dango } from "../../components";
 
 import {
   Wrapper,
@@ -86,6 +86,7 @@ export function Home() {
           })}
         </Right>
       </Container>
+      <Dango/>
     </Wrapper>
   );
 }
