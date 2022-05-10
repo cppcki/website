@@ -63,6 +63,7 @@ export function About() {
             src={Fabiola}
             name="Fabiola Garcia"
             position="VP of Service"
+            linkedin="https://www.linkedin.com/in/fabiola-garcia-4bb991239/"
           />
           <Avatar
             src={Clarie}
