@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  min-width: 220px;
+  height: 60px;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -17,7 +22,7 @@ export const Content = styled.div`
 export const Heading = styled.div`
   color: ${props => props.theme.hue.gold};
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 300;
   text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;

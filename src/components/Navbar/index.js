@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 
+import { Header } from "components";
+
 import { 
   Container,
-  Content 
+  Content, 
 } from "./styles";
 
-export function Navbar() {
+export function Navbar(props) {
+  const { color } = props;
   return (
     <Container>
-      <Content>
-        <li> 
-          <Link to="/">Home</Link>
-        </li>
+      <Header/>
+      <Content color={color}>
         <li> 
           <Link to="/about">About</Link>
         </li>
@@ -19,7 +20,7 @@ export function Navbar() {
           <Link to="/resources">Resources</Link>
         </li>
         <li>
-          <a href="https://forms.gle/RvJPvBacXExm34kP8">Join</a>
+          <a href="https://forms.gle/iBqpsS2ngCRVSnsn6">Join</a>
         </li>
       </Content>
     </Container>

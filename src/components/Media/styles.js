@@ -9,11 +9,12 @@ export const Container = styled.ul`
     & > a svg {
       width: 20px;
       height: 20px;
+      fill: white;
     }
     margin-right: 35px;
     list-style-type: none;
   }
-  & > li:hover {
-    fill: ${props => props.theme.hue.blue};
+  & > li a svg:hover {
+    fill: ${props => props.theme.hue.gold};
   }
 `;

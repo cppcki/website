@@ -13,11 +13,11 @@ export const Container = styled.div`
     white-space: nowrap;
     text-decoration: none;
     font-size: 18px;
-    color: ${props => props.theme.hue.black};
+    color: ${props => props?.fill ? props.fill : props.theme.hue.black};
     & > svg {
       width: 18px;
       height: 18px;
-      fill: ${props => props.theme.hue.black};
+      fill: ${props => props?.fill ? props.fill : props.theme.hue.black};
       margin-left: 5%;
     }
   }
