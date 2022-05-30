@@ -34,7 +34,7 @@ export function Home() {
         <Anchor fill="white" text="learn more" href="https://forms.gle/iBqpsS2ngCRVSnsn6"/>
         <Media/>
       </Content>
-      <Video src={Montage} autoPlay muted loop/>
+      <Video src={Montage} autoPlay playsInline defaultMuted preload="auto" onContextMenu="return false;" muted loop/>
     </Wrapper>
   );
 }
