@@ -8,7 +8,7 @@ export function Anchor(props) {
   const { text, href } = props;
   if (href.includes("http://", 0) || href.includes("https://", 0)) {
     return (
-      <Container>
+      <Container {...props}>
         <a href={href}>
           {text}
           <Chevron/>
@@ -17,7 +17,7 @@ export function Anchor(props) {
     );
   } else {
     return (
-      <Container>
+      <Container {...props}>
         <Link to={href}>
           {text}
           <Chevron/>
