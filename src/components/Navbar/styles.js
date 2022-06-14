@@ -10,6 +10,10 @@ export const Container = styled.div`
   }
 `;
 
+export const Heading = styled.h1`
+  font-weight: lighter;
+`;
+
 export const Content = styled.ul`
   display: flex;
   list-style-type: none;
