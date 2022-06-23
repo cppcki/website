@@ -1,4 +1,4 @@
-import { Navbar, Avatar } from "../../components";
+import { Navbar, Avatar, Footer } from "../../components";
 
 import {
   Flex,
@@ -8,7 +8,7 @@ import {
   Image,
   Left,
   Title,
-  AvatarContainer
+  AvatarContainer,
 } from "./styles";
 
 import Annie from "../../assets/board/AnnieTaguchi.jpg";
@@ -23,22 +23,23 @@ import Banquet from "../../assets/images/banquet.jpg";
 
 export function About() {
   return (
-    <div style={{marginBottom: "100px"}}>
-      <Navbar/>
+    <div style={{ marginBottom: "100px" }}>
+      <Navbar />
       <Container>
         <Flex>
           <Content>
             <Title>What's CKI?</Title>
             <p>
-              Circle K blends community service and leadership training with the opportunity to meet
-              many other college students at service projects, conferences, and conventions and form
-              genuine lifelong friendships with people of all walks of life. 
+              Circle K blends community service and leadership training with the
+              opportunity to meet many other college students at service
+              projects, conferences, and conventions and form genuine lifelong
+              friendships with people of all walks of life.
             </p>
             <p>
-              It is a self-governing
-              organization and elects its own officers, conducts its own meetings, and determines its 
-              own service activities. This high degree of autonomy allows for a unique service experience
-              driven entirely by the members for the members. 
+              It is a self-governing organization and elects its own officers,
+              conducts its own meetings, and determines its own service
+              activities. This high degree of autonomy allows for a unique
+              service experience driven entirely by the members for the members.
             </p>
           </Content>
           <Left>
@@ -47,8 +48,8 @@ export function About() {
         </Flex>
         <Heading> Meet the Board</Heading>
         <AvatarContainer>
-          <Avatar 
-            src={Nicole} 
+          <Avatar
+            src={Nicole}
             name="Nicole Wu"
             position="President"
             linkedin="https://www.linkedin.com/in/nicole-wu-852623203/"
@@ -65,12 +66,8 @@ export function About() {
             position="VP of Service"
             linkedin="https://www.linkedin.com/in/fabiola-garcia-4bb991239/"
           />
+          <Avatar src={Clarie} name="Claire Feld" position="Secretary" />
           <Avatar
-            src={Clarie}
-            name="Claire Feld"
-            position="Secretary"
-          />
-          <Avatar 
             src={Lorenzo}
             name="Lorenzo Barrios"
             position="Treasurer"
@@ -90,6 +87,7 @@ export function About() {
           />
         </AvatarContainer>
       </Container>
+      <Footer />
     </div>
   );
 }
