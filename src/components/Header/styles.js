@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -7,6 +8,11 @@ export const Container = styled.div`
   @media (max-width: 500px) {
     width: 100%;
   }
+`;
+
+export const Wrapper = styled(Link)`
+  display: flex;
+  text-decoration: none;
 `;
 
 export const Content = styled.div`
