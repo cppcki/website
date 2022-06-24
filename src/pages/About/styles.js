@@ -9,7 +9,7 @@ export const AvatarContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  justify-content: center;
+  justify-content: left;
   @media (max-width: 650px) {
     justify-content: center;
   }
