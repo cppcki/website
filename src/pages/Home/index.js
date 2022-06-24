@@ -1,3 +1,5 @@
+import { useRef, useEffect } from "react";
+
 import { 
   Anchor, 
   Navbar, 
@@ -17,6 +19,13 @@ import {
 
 export function Home() {
 
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (!videoRef) return;
+    videoRef.current.playbackRate = 0.7;
+  }, []);
+
   return (
     <Wrapper>
       <Navbar color="white"/>
@@ -31,10 +40,24 @@ export function Home() {
           Become part of one of the largest collegiate community service,
           leadership development, and friendship organization in the world.
         </Description>
-        <Anchor fill="white" text="learn more" href="https://forms.gle/iBqpsS2ngCRVSnsn6"/>
+        <Anchor
+          fill="white" 
+          text="learn more" 
+          href="https://forms.gle/iBqpsS2ngCRVSnsn6"
+        />
         <Media/>
       </Content>
-      <Video src={Montage} autoPlay playsInline defaultMuted preload="auto" onContextMenu="return false;" muted loop/>
+      <Video
+        ref={videoRef}
+        src={Montage}
+        autoPlay
+        playsInline
+        defaultMuted
+        preload="auto"
+        onContextMenu={() => false}
+        muted 
+        loop
+      />
     </Wrapper>
   );
 }

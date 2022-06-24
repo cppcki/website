@@ -9,37 +9,42 @@ export const AvatarContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-<<<<<<< Updated upstream
   justify-content: center;
-=======
   @media (max-width: 650px) {
     justify-content: center;
   }
->>>>>>> Stashed changes
 `;
 
 export const Flex = styled.div`
   display: flex;
   margin-left: 10px;
   margin-right: 10px;
-  justify-content: center;
   flex-wrap: wrap;
-  height: 400px;
+  min-height: 400px;
+`;
+
+export const Row = styled.div`
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  @media (max-width: 650px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const Content = styled.div`
-  width: 50%;
+  width: 40%;
   @media (max-width: 650px) {
     width: 100%;
   }
 `;
 
 export const Left = styled.div`
-  width: 50%;
+  width: 60%;
   display: flex;
   justify-content: center;
   @media (max-width: 650px) {
-    display: none;
+    width: 100%;
   }
 `;
 
@@ -50,14 +55,10 @@ export const Title = styled.h1`
 export const Image = styled.img.attrs(props => ({
   as: !props.src && "div"
 }))`
-  border-radius: 50%;
   margin: auto;
-  width: ${p => p.width}px;
+  width: 100%;
   height: ${p => p.height}px;
-  position: absolute;
-  object-fit: cover;
-  background-color: ${p => p.theme.hue.gold};
-  border: 2px solid ${p => p.theme.hue.gold};
+  background: transparent;
   transform: translate(${p => p.x || 0}, ${p => p.y || 0});
 `;
 
