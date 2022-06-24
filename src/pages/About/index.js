@@ -17,7 +17,7 @@ import Lorenzo from "../../assets/board/LorenzoBarrios.jpg";
 import Nicole from "../../assets/board/NicoleWu.jpg";
 import Clarie from "../../assets/board/Clarie.jpg";
 import Fatima from "../../assets/board/Fatima.jpg";
-import Deric from "../../assets/board/DericKwok.jpg";
+import Gaelen from "../../assets/board/Gaelen.jpg";
 
 import Banquet from "../../assets/images/banquet.jpg";
 
@@ -82,11 +82,10 @@ export function About() {
             position="Graphics Chair"
           />
           <Avatar
-            src={Deric}
-            name="Deric Kwok"
+            src={Gaelen}
+            name="Gaelen Somera"
             position="Technology Chair"
-            website="https://deric.app"
-            linkedin="https://linkedin.com/in/derickwok"
+            linkedin="https://www.linkedin.com/in/gaelensomera/"
           />
         </AvatarContainer>
       </Container>
