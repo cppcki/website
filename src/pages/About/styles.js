@@ -9,7 +9,13 @@ export const AvatarContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+<<<<<<< Updated upstream
   justify-content: center;
+=======
+  @media (max-width: 650px) {
+    justify-content: center;
+  }
+>>>>>>> Stashed changes
 `;
 
 export const Flex = styled.div`
