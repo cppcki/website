@@ -9,7 +9,7 @@ export const AvatarContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  justify-content: center;
+  /* justify-content: center; */
 `;
 
 export const Flex = styled.div`

@@ -19,6 +19,8 @@ import Nicole from "../../assets/board/NicoleWu.jpg";
 import Clarie from "../../assets/board/Clarie.jpg";
 import Fatima from "../../assets/board/Fatima.jpg";
 import Gaelen from "../../assets/board/Gaelen.jpg";
+import William from "../../assets/board/William.jpg";
+import Johnny from "../../assets/board/JohnnyQiu.jpg";
 
 import Banquet from "../../assets/images/banquet_brush.png";
 
@@ -91,6 +93,16 @@ export function About() {
             name="Gaelen Somera"
             position="Technology Chair"
             linkedin="https://www.linkedin.com/in/gaelensomera/"
+          />
+          <Avatar
+            src={William}
+            name="William Phan"
+            position="Fundraising Chair"
+          />
+          <Avatar
+            src={Johnny}
+            name="Johnny Qiu"
+            position="Kiwanis Family Relations Chair"
           />
         </AvatarContainer>
       </Container>
