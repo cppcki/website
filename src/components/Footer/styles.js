@@ -3,13 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 `;
 
 export const Row = styled.div`
   min-width: 300px;
 `;
 
-export const Link = styled.a`
+export const Hyplink = styled.a`
   & > svg {
     fill: ${(props) => props.theme.hue.gold};
   }
@@ -17,7 +18,6 @@ export const Link = styled.a`
 
 export const TextLink = styled.a`
   color: ${(props) => props.theme.hue.gold};
-  font-size: 20px;
   margin: 10px;
   text-decoration: none;
 `;
@@ -36,32 +36,37 @@ export const Logo = styled.img`
 
 export const Center = styled.p`
   text-align: center;
-  justify-content: center;
 `;
 
 export const Col = styled.ul`
   list-style: none;
 `;
 
-export const Heading = styled.div`
+export const Heading = styled.h3`
   color: ${(props) => props.theme.hue.gold};
-  font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: capitalize;
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
 `;
 
-export const Subheading = styled.div`
+export const Subheading = styled.h3`
   color: ${(props) => props.theme.hue.blue};
-  font-size: 20px;
   text-transform: capitalize;
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
 `;
 
-export const TextHeight = styled.div`
-  line-height: 40px;
+export const TextSpace = styled.p`
+  line-height: 45px;
+`;
+
+export const SecondCol = styled.h3`
+  color: ${(props) => props.theme.hue.gold};
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
 `;
