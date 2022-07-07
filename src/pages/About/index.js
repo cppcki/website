@@ -23,7 +23,7 @@ import Banquet from "../../assets/images/banquet.jpg";
 
 export function About() {
   return (
-    <div style={{ marginBottom: "100px" }}>
+    <div>
       <Navbar />
       <Container>
         <Flex>
@@ -86,8 +86,8 @@ export function About() {
             linkedin="https://linkedin.com/in/derickwok"
           />
         </AvatarContainer>
+        <Footer />
       </Container>
-      <Footer />
     </div>
   );
 }

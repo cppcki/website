@@ -1,134 +1,91 @@
 import React from "react";
-import { Header } from "../";
-import { Link } from "react-router-dom";
+
 import {
+  Wrapper,
   Container,
+  HeadingRow,
   Row,
   Logo,
-  Center,
+  Legal,
   Col,
   Subheading,
   Heading,
-  TextLink,
-  TextSpace,
-  SecondCol,
+  StyledLink,
+  StyledAnchor
 } from "./styles";
 
-import { ReactComponent as Meta } from "../../assets/media/meta.svg";
+import { ReactComponent as Facebook } from "../../assets/media/meta.svg";
 import { ReactComponent as Discord } from "../../assets/media/discord.svg";
 import { ReactComponent as Tiktok } from "../../assets/media/tiktok.svg";
 import { ReactComponent as Instagram } from "../../assets/media/instagram.svg";
 import CKI_Logo from "../../assets/images/cki_logo.png";
-import { About } from "pages";
 
 export function Footer() {
   return (
-    <div className="main-footer" flex-wrap="wrap">
+    <Wrapper>
       <Container>
-        <Row>
-          {/*column1 */}
-          <ul className="list-unstyled">
+        <HeadingRow>
+          <StyledLink to="/">
             <Logo src={CKI_Logo} alt="Circle K International Logo" />
             <Heading>Circle K</Heading>
             <Subheading>Cal Poly Pomona</Subheading>
-          </ul>
-        </Row>
-        {/* Column2 */}
-        <Row>
+          </StyledLink>
+        </HeadingRow>
+        <Row aligin="center">
           <Col>
             <Subheading>
-              <li> Contact Us </li>
+              contact us
             </Subheading>
-            <SecondCol>
-              <p>
-                <a
-                  href="https://Instagram.com"
-                  target="_blank"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Instagram fill="#B1953A" height="26px" />
-                  <TextLink>cppcki</TextLink>
-                </a>
-              </p>
-              <p>
-                <a
-                  href="https://Facebook.com"
-                  target="_blank"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Meta fill="#B1953A" height="26px" />
-                  <TextLink>cppcki</TextLink>
-                </a>
-              </p>
-              <p>
-                <a
-                  href="https://Tiktok.com"
-                  target="_blank"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Tiktok fill="#B1953A" height="26px" />
-                  <TextLink>cppcki</TextLink>
-                </a>
-              </p>
-              <p>
-                <a
-                  href="https://Discord.com"
-                  target="_blank"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Discord fill="#B1953A" height="26px" />
-                  <TextLink>cppcki</TextLink>
-                </a>
-              </p>
-            </SecondCol>
+            <StyledAnchor
+              href="https://instagram.com/cppcki"
+              target="_blank"
+              rel="noreferrer">
+              <Instagram/>
+              instagram
+            </StyledAnchor>
+            <StyledAnchor
+              href="https://facebook.com/cppcki"
+              target="_blank"
+              rel="noreferrer">
+              <Facebook/>
+              facebook
+            </StyledAnchor>
+            <StyledAnchor
+              href="https://tiktok.com/@cppcki"
+              target="_blank"
+              rel="noreferrer">
+              <Tiktok/>
+              tiktok
+            </StyledAnchor>
+            <StyledAnchor
+              href="https://discord.com/invite/SBPrv8Yy8B"
+              target="_blank"
+              rel="noreferrer">
+              <Discord/>
+              discord
+            </StyledAnchor>
           </Col>
         </Row>
-        {/* Column3 */}
         <Row>
           <Col>
-            <Subheading>
-              <TextSpace>
-                <Link
-                  style={{ textDecoration: "none", color: "#004B85" }}
-                  to="/About"
-                >
-                  About Us
-                </Link>
-              </TextSpace>
-              <TextSpace>
-                <Link
-                  style={{ textDecoration: "none", color: "#004B85" }}
-                  to="/Home"
-                >
-                  Events
-                </Link>
-              </TextSpace>
-              <TextSpace>
-                <Link
-                  style={{ textDecoration: "none", color: "#004B85" }}
-                  to="/Resources"
-                >
-                  Resources
-                </Link>
-              </TextSpace>
-              <TextSpace>
-                <Link
-                  style={{ textDecoration: "none", color: "#004B85" }}
-                  to="/Join"
-                >
-                  Join
-                </Link>
-              </TextSpace>
-            </Subheading>
+            <StyledLink to="/">
+              <h3>home</h3>
+            </StyledLink>
+            <StyledLink to="/about">
+              <h3>about us</h3>
+            </StyledLink>
+            <StyledLink to="/resources">
+              <h3>resources</h3>  
+            </StyledLink>
+            <StyledLink to="/Join">
+              <h3>join</h3>
+            </StyledLink>
           </Col>
         </Row>
       </Container>
-      <Row>
-        <Center>
-          &copy; {new Date().getFullYear()} CIRCLE K INTERNATIONAL AT CAL POLY
-          POMONA · All Rights Reserved
-        </Center>
-      </Row>
-    </div>
+      <Legal>
+        &copy; {new Date().getFullYear()} circle k international at cal poly pomona · all rights reserved
+      </Legal>
+    </Wrapper>
   );
 }
