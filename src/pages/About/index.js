@@ -1,4 +1,4 @@
-import { Navbar, Avatar } from "../../components";
+import { Navbar, Avatar, Footer } from "../../components";
 
 import {
   Flex,
@@ -26,8 +26,8 @@ import Banquet from "../../assets/images/banquet_brush.png";
 
 export function About() {
   return (
-    <div style={{marginBottom: "100px"}}>
-      <Navbar/>
+    <div>
+      <Navbar />
       <Container>
         <Flex>
           <Row>
@@ -54,8 +54,8 @@ export function About() {
         </Flex>
         <Heading> Meet the Board</Heading>
         <AvatarContainer>
-          <Avatar 
-            src={Nicole} 
+          <Avatar
+            src={Nicole}
             name="Nicole Wu"
             position="President"
             linkedin="https://www.linkedin.com/in/nicole-wu-852623203/"
@@ -72,12 +72,8 @@ export function About() {
             position="VP of Service"
             linkedin="https://www.linkedin.com/in/fabiola-garcia-4bb991239/"
           />
+          <Avatar src={Clarie} name="Claire Feld" position="Secretary" />
           <Avatar
-            src={Clarie}
-            name="Claire Feld"
-            position="Secretary"
-          />
-          <Avatar 
             src={Lorenzo}
             name="Lorenzo Barrios"
             position="Treasurer"
@@ -105,6 +101,7 @@ export function About() {
             position="Kiwanis Family Relations Chair"
           />
         </AvatarContainer>
+        <Footer />
       </Container>
     </div>
   );
