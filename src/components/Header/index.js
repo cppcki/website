@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import CKI_Logo from "../../assets/images/cki_logo.png";
 
 import { 
@@ -7,19 +5,20 @@ import {
   Logo,
   Content,
   Heading,
-  Subheading
+  Subheading,
+  Wrapper
 } from "./styles";
 
 export function Header() {
   return (
     <Container>
-      <Link to="/">
+      <Wrapper to="/">
         <Logo src={CKI_Logo} alt="Circle K International Logo"/>
-      </Link>
-      <Content>
-        <Heading>Circle K</Heading>
-        <Subheading>Cal Poly Pomona</Subheading>
-      </Content>
+        <Content>
+          <Heading>Circle K</Heading>
+          <Subheading>Cal Poly Pomona</Subheading>
+        </Content>
+      </Wrapper>
     </Container>
   );
 }

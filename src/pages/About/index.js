@@ -9,6 +9,7 @@ import {
   Left,
   Title,
   AvatarContainer,
+  Row
 } from "./styles";
 
 import Annie from "../../assets/board/AnnieTaguchi.jpg";
@@ -17,9 +18,11 @@ import Lorenzo from "../../assets/board/LorenzoBarrios.jpg";
 import Nicole from "../../assets/board/NicoleWu.jpg";
 import Clarie from "../../assets/board/Clarie.jpg";
 import Fatima from "../../assets/board/Fatima.jpg";
-import Deric from "../../assets/board/DericKwok.jpg";
+import Gaelen from "../../assets/board/Gaelen.jpg";
+import William from "../../assets/board/William.jpg";
+import Johnny from "../../assets/board/JohnnyQiu.jpg";
 
-import Banquet from "../../assets/images/banquet.jpg";
+import Banquet from "../../assets/images/banquet_brush.png";
 
 export function About() {
   return (
@@ -27,24 +30,27 @@ export function About() {
       <Navbar />
       <Container>
         <Flex>
-          <Content>
+          <Row>
             <Title>What's CKI?</Title>
-            <p>
-              Circle K blends community service and leadership training with the
-              opportunity to meet many other college students at service
-              projects, conferences, and conventions and form genuine lifelong
-              friendships with people of all walks of life.
-            </p>
-            <p>
-              It is a self-governing organization and elects its own officers,
-              conducts its own meetings, and determines its own service
-              activities. This high degree of autonomy allows for a unique
-              service experience driven entirely by the members for the members.
-            </p>
-          </Content>
-          <Left>
-            <Image src={Banquet} width={300} height={300} />
-          </Left>
+          </Row>
+          <Row>
+            <Content>
+              <p>
+                Circle K blends community service and leadership training with the opportunity to meet
+                many other college students at service projects, conferences, and conventions and form
+                genuine lifelong friendships with people of all walks of life. 
+              </p>
+              <p>
+                It is a self-governing
+                organization and elects its own officers, conducts its own meetings, and determines its 
+                own service activities. This high degree of autonomy allows for a unique service experience
+                driven entirely by the members for the members. 
+              </p>
+            </Content>
+            <Left>
+              <Image src={Banquet} height={300} />
+            </Left>
+          </Row>
         </Flex>
         <Heading> Meet the Board</Heading>
         <AvatarContainer>
@@ -79,11 +85,20 @@ export function About() {
             position="Graphics Chair"
           />
           <Avatar
-            src={Deric}
-            name="Deric Kwok"
+            src={Gaelen}
+            name="Gaelen Somera"
             position="Technology Chair"
-            website="https://deric.app"
-            linkedin="https://linkedin.com/in/derickwok"
+            linkedin="https://www.linkedin.com/in/gaelensomera/"
+          />
+          <Avatar
+            src={William}
+            name="William Phan"
+            position="Fundraising Chair"
+          />
+          <Avatar
+            src={Johnny}
+            name="Johnny Qiu"
+            position="Kiwanis Family Relations Chair"
           />
         </AvatarContainer>
         <Footer />
