@@ -4,3 +4,4 @@ export * from "./Navbar";
 export * from "./Header";
 export * from "./Media";
 export * from "./Dango";
+export * from "./Tenants";
