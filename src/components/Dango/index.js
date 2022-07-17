@@ -1,12 +1,18 @@
 import { 
   Container, 
   Content,
+  ImageStack,
+  ImageStackBottom,
+  ImageStackMiddle,
+  ImageStackTop,
   Left, 
   Right,
 } from "./styles";
 
-import pic from "./collage1.png";
 import { Anchor } from "components/Anchor";
+import goat from "./goatDerric.jpg";
+import totoro from "./totoroWonderCon.jpg";
+import group from "./groupDango.jpg";
 
 // Project directory
 // `cd ~/Documents/cki-website`
@@ -30,7 +36,17 @@ export function Dango(){
         </Content>
       </Left>
       <Right>
-        <img src={ pic } width="600" alt="picture collage of Dango memories"/>
+        <ImageStack>
+          <ImageStackTop>
+            <img src= { group } width= "500"/>
+          </ImageStackTop>
+          <ImageStackMiddle>
+            <img src= { goat } width= "500"/>
+          </ImageStackMiddle>
+          <ImageStackBottom>
+            <img src= { totoro } width= "300"/>
+          </ImageStackBottom>
+        </ImageStack>
       </Right> 
     </Container>
   );

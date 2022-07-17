@@ -33,3 +33,33 @@ export const Right = styled.div`
   margin-left: 50px;
 `;
 
+export const ImageStack = styled.div`
+  content: ' ';
+  display: table;
+  clear: both;
+`;
+export const ImageStackTop = styled.div`
+  float: left;
+  width: 75%;
+  margin-right: -100%;
+  padding-left: 10%;
+  position: relative;
+  z-index: 2;
+`;
+
+export const ImageStackMiddle = styled.div`
+  float: left;
+  width: 66%;
+  margin-right: -100%;
+  padding-top: 20%;
+  padding-left: 5%; 
+  position: relative;
+  z-index: 1;
+`;
+
+export const ImageStackBottom = styled.div`
+  float: right;
+  width: 50%;
+  padding-top: 10%;
+`;
+

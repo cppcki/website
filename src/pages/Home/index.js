@@ -6,10 +6,10 @@ import {
   Footer,
   Navbar,
   Events,
+  Tenants
 } from "components";
 
 import Montage from "../../assets/media/montage.mp4";
-
 import {
   Wrapper,
   Video,
@@ -65,6 +65,7 @@ export function Home() {
           loop
         />
         <Content>
+          <Tenants/>
           <Events/>
           <Footer/>
         </Content>
