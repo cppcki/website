@@ -10,6 +10,7 @@ export const Container = styled.div`
   transition: 0.5s;
   animation: ease-in;
   margin: 15px;
+  border-radius: 15px;
 
   &:hover {
     transform: scale(1.1);
@@ -49,6 +50,8 @@ export const CardDate = styled.a`
   margin-bottom: 10px;
   align-items: center;
   display: flex;
+  margin-top: -10px;
+  margin-bottom: -25px;
 
   & > svg {
     fill: ${(props) => props.theme.hue.grey};

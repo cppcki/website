@@ -19,7 +19,7 @@ export function Event({ date, title, imageUrl, body }) {
       <Content>
         <CardDate>
           <Date />
-          <a>{date}</a>
+          <p>{date}</p>
         </CardDate>
         <CardTitle>
           <h3>{title}</h3>
@@ -31,3 +31,5 @@ export function Event({ date, title, imageUrl, body }) {
     </Container>
   );
 }
+
+//add rounded curves
