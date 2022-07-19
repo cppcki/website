@@ -31,5 +31,3 @@ export function Event({ date, title, imageUrl, body }) {
     </Container>
   );
 }
-
-//add rounded curves
