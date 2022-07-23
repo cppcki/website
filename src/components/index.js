@@ -5,3 +5,5 @@ export * from "./Header";
 export * from "./Media";
 export * from "./Avatar";
 export * from "./Footer";
+export * from "./Register";
+export * from "./ParticleBG";
