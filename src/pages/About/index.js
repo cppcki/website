@@ -103,12 +103,6 @@ export function About() {
             position="Kiwanis Family Relations Chair"
           />
         </AvatarContainer>
-        <Event
-          date="saturday, november 6, 2022 @ 1pm - 3pm"
-          title="mentor & mentee mixer"
-          imageUrl="https://i.ytimg.com/vi/u5uQYgwQ_UU/maxresdefault.jpg"
-          location="The quad @ cal poly pomona"
-        />
         <Footer />
       </Container>
     </div>
