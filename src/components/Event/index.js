@@ -22,7 +22,7 @@ export function Event(props) {
       <Content>
         <CardDate>
           <Date />
-          <a>{date}</a>
+          {date}
         </CardDate>
         <CardTitle>
           <h3>{title}</h3>
