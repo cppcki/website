@@ -5,4 +5,6 @@ export * from "./Header";
 export * from "./Media";
 export * from "./Avatar";
 export * from "./Footer";
+export * from "./Event";
 export * from "./About";
+export * from "./Events";

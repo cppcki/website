@@ -1,11 +1,11 @@
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { 
   Anchor, 
   Media,
   Footer,
-  Header,
-  About
+  Navbar,
+  Events
 } from "components";
 
 import Montage from "../../assets/media/montage.mp4";
@@ -19,7 +19,8 @@ import {
   Description,
   Premotto
 } from "./styles";
-import { Tenants } from "components/Tenants";
+
+
 
 export function Home() {
 
@@ -32,8 +33,8 @@ export function Home() {
 
   return (
     <Wrapper>
+      <Navbar/>
       <CarouselContent>
-        <Header/>
         <Motto>
           <Premotto>
             We love service 
@@ -63,8 +64,7 @@ export function Home() {
         loop
       />
       <Content>
-        <About/>
-        <Tenants/>
+        <Events/>
         <Footer/>
       </Content>
     </Wrapper>
