@@ -39,7 +39,7 @@ export const CardTitle = styled.div`
   margin-bottom: -10px;
 `;
 
-export const CardDate = styled.a`
+export const CardDate = styled.div`
   color: ${(props) => props.theme.hue.grey};
   text-transform: capitalize;
   font-size: 13px;
