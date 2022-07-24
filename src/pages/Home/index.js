@@ -2,8 +2,10 @@ import { useRef, useEffect } from "react";
 
 import { 
   Anchor, 
-  Navbar, 
-  Media 
+  Media,
+  Footer,
+  Header,
+  About
 } from "components";
 
 import Montage from "../../assets/media/montage.mp4";
@@ -12,10 +14,12 @@ import {
   Wrapper,
   Video,
   Content,
+  CarouselContent,
   Motto,
   Description,
   Premotto
 } from "./styles";
+import { Tenants } from "components/Tenants";
 
 export function Home() {
 
@@ -23,13 +27,13 @@ export function Home() {
 
   useEffect(() => {
     if (!videoRef) return;
-    videoRef.current.playbackRate = 0.7;
+    videoRef.current.playbackRate = 0.65;
   }, []);
 
   return (
     <Wrapper>
-      <Navbar color="white"/>
-      <Content>
+      <CarouselContent>
+        <Header/>
         <Motto>
           <Premotto>
             We love service 
@@ -46,7 +50,7 @@ export function Home() {
           href="https://forms.gle/iBqpsS2ngCRVSnsn6"
         />
         <Media/>
-      </Content>
+      </CarouselContent>
       <Video
         ref={videoRef}
         src={Montage}
@@ -58,6 +62,11 @@ export function Home() {
         muted 
         loop
       />
+      <Content>
+        <About/>
+        <Tenants/>
+        <Footer/>
+      </Content>
     </Wrapper>
   );
 }
