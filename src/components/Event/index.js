@@ -1,9 +1,9 @@
 import React from "react";
 import {
   Container,
-  ImageContainer,
+  Image,
   CardTitle,
-  CardBody,
+  CardLocation,
   CardDate,
   Content,
 } from "./styles";
@@ -12,24 +12,18 @@ import { ReactComponent as Date } from "../../assets/images/Date.svg";
 
 export function Event(props) {
 
-  const { date, title, imageUrl, body } = props;
+  const { date, title, imageUrl, location } = props;
 
   return (
     <Container>
-      <ImageContainer>
-        <img src={imageUrl} alt="" />
-      </ImageContainer>
+      <Image src={imageUrl} alt={`${title} event`}/>
       <Content>
         <CardDate>
           <Date />
           {date}
         </CardDate>
-        <CardTitle>
-          <h3>{title}</h3>
-        </CardTitle>
-        <CardBody>
-          <p>{body}</p>
-        </CardBody>
+        <CardTitle>{title}</CardTitle>
+        <CardLocation>{location}</CardLocation>
       </Content>
     </Container>
   );

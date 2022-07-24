@@ -107,7 +107,7 @@ export function About() {
           date="saturday, november 6, 2022 @ 1pm - 3pm"
           title="mentor & mentee mixer"
           imageUrl="https://i.ytimg.com/vi/u5uQYgwQ_UU/maxresdefault.jpg"
-          body="The quad @ cal poly pomona"
+          location="The quad @ cal poly pomona"
         />
         <Footer />
       </Container>
