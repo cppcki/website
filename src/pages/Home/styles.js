@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import Mask from "../../assets/images/mask.png";
 
 const fadeIn = keyframes`
   from {
@@ -12,26 +13,31 @@ const fadeIn = keyframes`
 
 export const Wrapper = styled.div``;
 
-export const Content = styled.div`
+export const CarouselContent = styled.div`
   position: absolute;
   margin: 20px;
   top: 280px;
   z-index: 1;
 `;
 
+export const Content = styled.div`
+  max-width: 1920px;
+  margin: 0 auto;
+`;
+
 export const Video = styled.video`
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
   filter: brightness(69%);
   animation: ${fadeIn} 3s linear;
   background-color: black;
-  bottom: 0;
   z-index: -1;
+
+  mask-image: url(${Mask});
+  mask-repeat: no-repeat;
+  mask-position: 0 min(10%, 100%);
+  mask-size: cover;
 `;
 
 export const Motto = styled.div`
