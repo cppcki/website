@@ -4,17 +4,12 @@ export const Container = styled.div`
   flex-wrap: wrap;
   display: flex;
   justify-content: space-between;
+  border: solid 1px ${p => p.theme.hue.gray};
+  border-radius: 10px;
   width: 300px;
-  overflow: hidden;
-  box-shadow: 0px 0px 15px -5px;
   transition: 0.5s;
   animation: ease-in;
   margin: 15px;
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px;
-  }
 `;
 
 export const Content = styled.div`
@@ -24,6 +19,8 @@ export const Content = styled.div`
 
 export const ImageContainer = styled.div`
   overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   display: flex;
   height: 220px;
   width: 300px;

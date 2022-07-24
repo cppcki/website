@@ -10,7 +10,10 @@ import {
 
 import { ReactComponent as Date } from "../../assets/images/Date.svg";
 
-export function Event({ date, title, imageUrl, body }) {
+export function Event(props) {
+
+  const { date, title, imageUrl, body } = props;
+
   return (
     <Container>
       <ImageContainer>

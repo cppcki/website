@@ -4,7 +4,8 @@ export const DefaultTheme = {
   hue: {
     black: "#333333",
     gold: "#B1953A",
-    blue: "#004B85"
+    blue: "#004B85",
+    gray: "#ececec"
   }
 }
 
