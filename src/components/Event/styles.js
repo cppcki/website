@@ -46,6 +46,8 @@ export const CardDate = styled.div`
   margin-bottom: 10px;
   align-items: center;
   display: flex;
+  margin-top: -10px;
+  margin-bottom: -25px;
 
   & > svg {
     fill: ${(props) => props.theme.hue.grey};
