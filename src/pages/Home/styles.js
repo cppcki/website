@@ -11,7 +11,9 @@ const fadeIn = keyframes`
   }
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  width: 100%;
+`;
 
 export const CarouselContent = styled.div`
   position: absolute;
@@ -26,7 +28,11 @@ export const Content = styled.div`
 `;
 
 export const Video = styled.video`
+<<<<<<< HEAD
   width: 100vw;
+=======
+  width: 100%;
+>>>>>>> 3397cb9 (mobile navbar)
   height: 120vh;
   object-fit: cover;
   filter: brightness(69%);
@@ -64,4 +70,8 @@ export const Image = styled.div`
   background-position-y: 60%;
   background-repeat: no-repeat;
   background-image: url(${props => props.img});
+`;
+
+export const Container = styled.div`
+  transition: all 500ms;
 `;

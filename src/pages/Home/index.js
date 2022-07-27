@@ -4,9 +4,8 @@ import {
   Anchor, 
   Media,
   Footer,
-  Header,
-  About,
-  Navbar
+  Navbar,
+  Events
 } from "components";
 
 import Montage from "../../assets/media/montage.mp4";
@@ -18,13 +17,14 @@ import {
   CarouselContent,
   Motto,
   Description,
-  Premotto
+  Premotto,
+  Container
 } from "./styles";
-import { Tenants } from "components/Tenants";
 
 export function Home() {
 
   const videoRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     if (!videoRef) return;
@@ -64,12 +64,11 @@ export function Home() {
           muted 
           loop
         />
+        <Content>
+          <Events/>
+          <Footer/>
+        </Content>
       </Container>
-      <Content>
-        <About/>
-        <Tenants/>
-        <Footer/>
-      </Content>
     </Wrapper>
   );
 }

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 export const Wrapper = styled.footer`
   margin-top: 30px;
   margin-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 
 export const Container = styled.div`
