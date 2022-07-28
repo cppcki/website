@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 export const CarouselContent = styled.div`
   position: absolute;
   margin: 20px;
-  top: 280px;
+  top: 350px;
   z-index: 1;
 `;
 
@@ -28,11 +28,7 @@ export const Content = styled.div`
 `;
 
 export const Video = styled.video`
-<<<<<<< HEAD
-  width: 100vw;
-=======
   width: 100%;
->>>>>>> 3397cb9 (mobile navbar)
   height: 120vh;
   object-fit: cover;
   filter: brightness(69%);

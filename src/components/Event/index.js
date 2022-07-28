@@ -39,3 +39,7 @@ export function Event(props) {
     </Container>
   );
 }
+
+Event.defaultProps = {
+  thumbnail: PLACEHOLDER_IMAGE 
+}

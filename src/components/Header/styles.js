@@ -6,6 +6,12 @@ export const Container = styled.div`
   min-width: 220px;
   height: 60px;
   margin-bottom: 10px;
+<<<<<<< HEAD
+=======
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+>>>>>>> 312b81f1cc19d1b584c2933535ec1fc4ecc53ace
 `;
 
 export const Wrapper = styled(Link)`

@@ -34,7 +34,6 @@ export const CardTitle = styled.h2`
 
 export const CardDate = styled.div`
   color: ${(props) => props.theme.hue.grey};
-  text-transform: capitalize;
   font-size: 13px;
   align-items: center;
   display: flex;

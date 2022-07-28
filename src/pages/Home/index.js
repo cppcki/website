@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { 
   Anchor, 
@@ -20,6 +20,8 @@ import {
   Premotto,
   Container
 } from "./styles";
+
+
 
 export function Home() {
 

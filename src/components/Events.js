@@ -31,9 +31,6 @@ export function Events() {
   return (
     <Container>
       <h1>Upcoming Events</h1>
-      <p>
-        Check out our upcoming events!
-      </p>
       <Content>
         {events?.map((event) => {
           return (
