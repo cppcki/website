@@ -43,6 +43,9 @@ export function Events() {
 }
 
 const Container = styled.div`
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 const Content = styled.div`
