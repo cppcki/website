@@ -67,8 +67,8 @@ export function Navbar(props) {
   return (
     <Container position={position}>
       <Header/>
-      <HamburgerButton onClick={handleOnHamburgerToggle}>
-        <StyledHamburgerIcon fill={color} visibility={showHamburger}/>
+      <HamburgerButton onClick={handleOnHamburgerToggle} visible={showHamburger}>
+        <StyledHamburgerIcon fill={color}/>
       </HamburgerButton>
       <Content isNavbarOpen={navbarOpen} isMobile={showHamburger} color={color}>
         <li>
@@ -126,7 +126,6 @@ const Content = styled.ul`
 
 const StyledHamburgerIcon = styled(HamburgerIcon)`
   fill: ${p => p?.fill};
-  display: ${p => p.visibility ? "block" : "none"};
   transition: fill 0.5s;
 
   &:hover {
@@ -135,6 +134,7 @@ const StyledHamburgerIcon = styled(HamburgerIcon)`
 `;
 
 const HamburgerButton = styled.button`
+  display: ${p => p.visible ? "block" : "none"};
   background-color: transparent;
   border: none;
 `;

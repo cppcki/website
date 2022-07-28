@@ -32,9 +32,9 @@ export function Events() {
     <Container>
       <h1>Upcoming Events</h1>
       <Content>
-        {events?.map((event) => {
+        {events?.map((event, index) => {
           return (
-            <Event {...event}/>
+            <Event key={index} {...event}/>
           )
         })}
       </Content>
