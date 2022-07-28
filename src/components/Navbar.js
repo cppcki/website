@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -31,7 +31,9 @@ export function Navbar(props) {
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
+      // Prevent memeory leaks; all event listeners need to be remove if they aren't being used anymore.
       window.removeEventListener("resize", handleWindowResize);
+      window.removeEventListener("scroll", disableScroll);
       window.document.body.style.overflow = "";
     }
   }, []);
@@ -41,60 +43,117 @@ export function Navbar(props) {
       setShowHamburger(true);
     } else {
       setShowHamburger(false);
+      setNavbarOpen(false);
+      if (containerRef?.current) {
+        containerRef.current.style.transform = `translate(0px)`;
+      }
     }
-  }, [windowDimension]);
+  }, [windowDimension, containerRef]);
+
+  const disableScroll = () => {
+    window.scrollTo(0, 0);
+  }
 
   const handleOnHamburgerToggle = useCallback(() => {
-    if (containerRef?.current) {
-      if (!navbarOpen) {
-        setNavbarOpen(true);
+    if (!navbarOpen) {
+      setNavbarOpen(true);
+      window.document.body.style.overflow = "hidden";
+      window.addEventListener("scroll", disableScroll);
+      if (containerRef?.current) {
         containerRef.current.style.transform = `translate(200px)`;
-        window.document.body.style.overflow = "hidden";
-      } else {
-        containerRef.current.style.transform = `translate(0px)`;
-        window.document.body.style.overflow = "";
-        setNavbarOpen(false);
       }
     } else {
-      if (!navbarOpen) {
-        setNavbarOpen(true);
-      } else {
-        setNavbarOpen(false);
+      setNavbarOpen(false);
+      window.document.body.style.overflow = "";
+      window.removeEventListener("scroll", disableScroll);
+      if (containerRef?.current) {
+        containerRef.current.style.transform = `translate(0px)`;
       }
     }
   }, [navbarOpen, containerRef]);
 
+  const NavbarContent = (props) => {
+    const { visible } = props;
+    return (
+      <>
+        <Header/>
+        <HamburgerButton onClick={handleOnHamburgerToggle} visible={showHamburger}>
+          <StyledHamburgerIcon fill={color}/>
+        </HamburgerButton>
+        <Content isNavbarOpen={visible} isMobile={showHamburger} color={color}>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/resources">Resources</Link>
+          </li>
+          <li>
+            <a href="https://forms.gle/iBqpsS2ngCRVSnsn6">Join</a>
+          </li>
+        </Content>
+      </>
+    );
+  };
+
+  const navbarOverlay = useMemo(() => {
+    if (navbarOpen && position !== "absolute") {
+      return (
+        <OverlayContainer>
+          <NavbarContent visible/>
+        </OverlayContainer>
+      );
+    }
+    return null;
+  }, [navbarOpen, position]);
+
   return (
-    <Container position={position}>
-      <Header/>
-      <HamburgerButton onClick={handleOnHamburgerToggle} visible={showHamburger}>
-        <StyledHamburgerIcon fill={color}/>
-      </HamburgerButton>
-      <Content isNavbarOpen={navbarOpen} isMobile={showHamburger} color={color}>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/resources">Resources</Link>
-        </li>
-        <li>
-          <a href="https://forms.gle/iBqpsS2ngCRVSnsn6">Join</a>
-        </li>
-      </Content>
-    </Container>
+    <Wrapper>
+      <Container position={position}>
+        <NavbarContent visible={navbarOpen && position === "absolute"}/>
+      </Container>
+      {navbarOverlay}
+    </Wrapper>
   );
 }
 
-const Container = styled.div`
+const Wrapper = styled.div`
+
+`;
+
+const BaseContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  position: ${p => p.position ? p.position : ""};
   flex-wrap: wrap;
   justify-items: center;
   padding: 20px;
   width: 100%;
   z-index: 2;
 `;
+
+const OverlayContainer = styled(BaseContainer)`
+  background-color: white;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid ${p => p.theme.hue.gray};
+  position: absolute;
+  top: 0;
+`;
+
+const Container = styled(BaseContainer)`
+  position: ${p => p.position ? p.position : ""};
+`;
+
+const navbarListingColors = (props) => {
+  const { color, isNavbarOpen, theme } = props;
+  if (color) {
+    if (isNavbarOpen) {
+      return theme.hue.blue;
+    } else {
+      return color;
+    }
+  } else {
+    return theme.hue.black;
+  }
+}
 
 const Content = styled.ul`
   display: flex;
@@ -106,7 +165,7 @@ const Content = styled.ul`
     margin-right: 10px;
     margin-top: 10px;
     & > a {
-      color: ${p => p?.color ? p.isNavbarOpen ? p.theme.hue.blue : p.color : p.theme.hue.black};
+      color: ${p => navbarListingColors(p)};
       font-size: ${p => p.isMobile ? "25px" : "inital" };
       font-weight: bold;
       text-decoration: none;
@@ -114,7 +173,7 @@ const Content = styled.ul`
       text-align: center;
     }
     & > a:hover {
-      color: ${props => props.theme.hue.gold}
+      color: ${props => props.theme.hue.gold};
     }
   }
 
@@ -129,7 +188,7 @@ const StyledHamburgerIcon = styled(HamburgerIcon)`
   transition: fill 0.5s;
 
   &:hover {
-    fill: ${props => props.theme.hue.blue}
+    fill: ${props => props.theme.hue.blue};
   }
 `;
 
