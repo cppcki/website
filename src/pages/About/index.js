@@ -85,6 +85,7 @@ export function About() {
             src={Fatima}
             name="Fatima Santoyo"
             position="Graphics Chair"
+            linkedin="https://www.linkedin.com/in/fatima-santoya-752a13245/"
           />
           <Avatar
             src={Gaelen}
@@ -96,11 +97,13 @@ export function About() {
             src={William}
             name="William Phan"
             position="Fundraising Chair"
+            linkedin="https://www.linkedin.com/in/william-phan-3228b0245"
           />
           <Avatar
             src={Johnny}
             name="Johnny Qiu"
             position="Kiwanis Family Relations Chair"
+            linkedin="https://www.linkedin.com/in/johnny-qiu-896a7b245"
           />
         </AvatarContainer>
         <Footer />
