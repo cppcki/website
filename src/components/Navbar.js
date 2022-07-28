@@ -8,6 +8,10 @@ import { ReactComponent as HamburgerIcon } from "../assets/images/hamburger.svg"
 
 const MOBILE_THRESHOLD = 530;
 
+const disableScroll = () => {
+  window.scrollTo(0, 0);
+}
+
 export function Navbar(props) {
   const { color, containerRef, position } = props;
 
@@ -33,8 +37,6 @@ export function Navbar(props) {
     return () => {
       // Prevent memeory leaks; all event listeners need to be remove if they aren't being used anymore.
       window.removeEventListener("resize", handleWindowResize);
-      window.removeEventListener("scroll", disableScroll);
-      window.document.body.style.overflow = "";
     }
   }, []);
 
@@ -48,11 +50,12 @@ export function Navbar(props) {
         containerRef.current.style.transform = `translate(0px)`;
       }
     }
-  }, [windowDimension, containerRef]);
 
-  const disableScroll = () => {
-    window.scrollTo(0, 0);
-  }
+    return () => {
+      window.removeEventListener("scroll", disableScroll);
+      window.document.body.style.overflow = "";
+    }
+  }, [windowDimension, containerRef]);
 
   const handleOnHamburgerToggle = useCallback(() => {
     if (!navbarOpen) {
