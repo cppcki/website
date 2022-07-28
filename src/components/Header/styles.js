@@ -5,9 +5,7 @@ export const Container = styled.div`
   display: flex;
   min-width: 220px;
   height: 60px;
-  @media (max-width: 500px) {
-    width: 100%;
-  }
+  margin-bottom: 10px;
 `;
 
 export const Wrapper = styled(Link)`

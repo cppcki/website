@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import Mask from "../../assets/images/mask.png";
 
 const fadeIn = keyframes`
   from {
@@ -10,28 +11,35 @@ const fadeIn = keyframes`
   }
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  width: 100%;
+`;
 
-export const Content = styled.div`
+export const CarouselContent = styled.div`
   position: absolute;
   margin: 20px;
-  top: 280px;
+  top: 350px;
   z-index: 1;
 `;
 
+export const Content = styled.div`
+  max-width: 1920px;
+  margin: 0 auto;
+`;
+
 export const Video = styled.video`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 120vh;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
   filter: brightness(69%);
   animation: ${fadeIn} 3s linear;
   background-color: black;
-  bottom: 0;
   z-index: -1;
+
+  mask-image: url(${Mask});
+  mask-repeat: no-repeat;
+  mask-position: 0 min(10%, 100%);
+  mask-size: cover;
 `;
 
 export const Motto = styled.div`
@@ -58,4 +66,8 @@ export const Image = styled.div`
   background-position-y: 60%;
   background-repeat: no-repeat;
   background-image: url(${props => props.img});
+`;
+
+export const Container = styled.div`
+  transition: all 500ms;
 `;
