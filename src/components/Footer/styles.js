@@ -18,7 +18,7 @@ export const Container = styled.div`
 `;
 
 export const Row = styled.div`
-  margin: ${props => props?.aligin ? "0 auto" : 0};
+  margin: ${(props) => (props?.aligin ? "0 auto" : 0)};
 
   @media (max-width: 400px) {
     width: 100%;
@@ -95,5 +95,4 @@ export const Heading = styled.div`
 export const Subheading = styled.h3`
   color: ${(props) => props.theme.hue.blue};
   margin-block-start: 0;
-
 `;

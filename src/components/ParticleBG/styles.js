@@ -12,7 +12,7 @@ const frames = keyframes`
 
 export const Particles = styled.div`
   position: absolute;
-  height: 100%;
+  height: 160%;
   top: 0;
   left: 0;
   width: 100%;
@@ -27,7 +27,7 @@ export const Particle = styled.div`
   align-self: flex-end;
   transform: translateY(100%);
   width: 150px;
-  height: 150px;
+  height: 350px;
   font-size: 150px;
   filter: blur(15px);
   animation-delay: ${(props) => props.delay}s;

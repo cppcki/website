@@ -11,7 +11,7 @@ export function Navbar(props) {
       <Header />
       <Content color={color}>
         <li>
-          <Link to="/login">Login Test</Link>
+          <Link to="/login">Login</Link>
         </li>
         <li>
           <Link to="/about">About</Link>
