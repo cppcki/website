@@ -33,9 +33,5 @@ export function ParticleBG() {
     });
   }, []);
 
-  return (
-    <Wrapper>
-      <Particles>{particle}</Particles>
-    </Wrapper>
-  );
+  return <Particles>{particle}</Particles>;
 }

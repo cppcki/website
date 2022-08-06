@@ -7,7 +7,8 @@ import {
   Line,
   ContGoogle,
   Logo,
-  LoginLink,
+  ButtonLink,
+  ListContainer,
 } from "./styles";
 
 import Google from "../../assets/images/google_logo.png";
@@ -24,27 +25,42 @@ export function Register() {
 
   return (
     <Container>
-      <Description>email:</Description>
-      <Input placeholder="billybronco@cpp.edu" type="text" onChange={getData} />
-      <Description>password:</Description>
-      <Input type="password" onChange={passwordData} />
-      <LoginLink to="/">
-        <LoginButton primary>Login</LoginButton>
-      </LoginLink>
-      <ForgetPassword to="/">
-        <h3>Forgot Password?</h3>
-      </ForgetPassword>
-      <Line />
-      <Description style={{ marginLeft: "125px" }}>
-        Dont have an account?
-        <ForgetPassword to="/About"> Sign Up</ForgetPassword>
-      </Description>
-      <LoginLink to="/">
-        <ContGoogle>
-          <Logo src={Google} alt="Google Logo" />
-          <p>Continue with Google</p>
-        </ContGoogle>
-      </LoginLink>
+      <ListContainer>
+        <Description>email:</Description>
+        <div>
+          <Input
+            placeholder="billybronco@cpp.edu"
+            type="text"
+            onChange={getData}
+          />
+        </div>
+        <Description>password:</Description>
+        <Input type="password" onChange={passwordData} />
+        <ButtonLink to="/">
+          <LoginButton primary type="submit" value="submit">
+            Login
+          </LoginButton>
+        </ButtonLink>
+        <ForgetPassword to="/">
+          <h3>Forgot Password?</h3>
+        </ForgetPassword>
+        <Line />
+        <Description style={{ marginLeft: "60px" }}>
+          Dont have an account?
+          <ForgetPassword to="/About" style={{ marginLeft: "2px" }}>
+            {" "}
+            Sign Up
+          </ForgetPassword>
+        </Description>
+        <ButtonLink to="/">
+          <ContGoogle primary type="submit" value="submit">
+            <span>
+              <Logo src={Google} alt="Google Logo" />
+            </span>
+            <p>Continue with Google</p>
+          </ContGoogle>
+        </ButtonLink>
+      </ListContainer>
     </Container>
   );
 }

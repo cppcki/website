@@ -11,8 +11,8 @@ const frames = keyframes`
 `;
 
 export const Particles = styled.div`
-  position: absolute;
-  height: 160%;
+  position: fixed;
+  height: 100%;
   top: 0;
   left: 0;
   width: 100%;
@@ -27,13 +27,9 @@ export const Particle = styled.div`
   align-self: flex-end;
   transform: translateY(100%);
   width: 150px;
-  height: 350px;
+  height: 150px;
   font-size: 150px;
   filter: blur(15px);
   animation-delay: ${(props) => props.delay}s;
   animation-duration: ${(props) => props.duration}s;
-`;
-
-export const Wrapper = styled.div`
-  height: 100%;
 `;
