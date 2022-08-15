@@ -1,10 +1,11 @@
-import { Navbar } from "../../components";
+import { Navbar, Modal } from "../../components";
 
 export function Resources() {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       imagine having resources? wat are we rich?
+      <Modal />
     </div>
   );
 }
