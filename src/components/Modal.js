@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Col } from "./Footer/styles";
 
-const MOBILE_THRESHOLD = 600;
+const MOBILE_THRESHOLD = 900;
 
 export function Modal() {
   const [modal, setModal] = useState(false);
@@ -39,15 +39,16 @@ export function Modal() {
                   <TitleContent>
                     <h4>Saturday, November 6, 2022 @ 1pm - 3pm</h4>
                     <h2>Mentor & Mentee Mixer</h2>
-                    <h5>The Quad @ Cal Poly Pomona</h5>
+                    <h4>The Quad @ Cal Poly Pomona</h4>
+                    <hr />
                   </TitleContent>
                   <Description>
                     Compete with your fellow Dangos to find the best pairing for
                     your Mentor/Mentee! Are you ready?
                   </Description>
-                  <RSVPButton>RSVP</RSVPButton>
                 </Container>
               </Row>
+              <RSVPButton>RSVP</RSVPButton>
               <CloseModal onClick={toggleModal}>X</CloseModal>
             </ModalContent>
           </ModalPosition>
@@ -101,8 +102,6 @@ export const ActiveModal = styled.body`
   }
 `;
 
-////////////////////////////////
-
 export const ModalPosition = styled.div`
   position: absolute;
   top: 40%;
@@ -110,32 +109,35 @@ export const ModalPosition = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+///////////////////////////////
+
 export const ModalContent = styled.div`
   line-height: 1.4;
   background: #fdfdfd;
   border-radius: 10px;
-  max-width: 900px;
-  min-width: 400px;
-  height: 450px;
+  //max-width: 900px;
+  //min-width: 400px;
+  //max-height: 500px;
+  //min-height: 350px;
+  width: 900px;
 
   @media (max-width: ${MOBILE_THRESHOLD}px) {
     border-radius: 10px;
     justify-content: center;
-    //height: 300px;
-    //width: 300px;
-    min-width: 200px;
-    flex-direction: row;
+    width: 500px;
+    height: 400px;
     align-items: center;
   }
 `;
 
 export const Container = styled.div`
   padding: 14px 28px;
+  width: 80%;
+  margin-bottom: 25%;
 `;
 
 export const TitleContent = styled.div`
-  //width: 100%;
-  line-height: 0.3;
+  line-height: 1;
 
   & > h2 {
     color: ${(props) => props.theme.hue.blue};
@@ -145,25 +147,12 @@ export const TitleContent = styled.div`
     color: ${(props) => (props.primary ? "white" : "#333333")};
     font-size: 12px;
   }
-
-  & > h5 {
-    color: ${(props) => (props.primary ? "white" : "#333333")};
-    font-size: 12px;
-  }
-
-  @media (max-width: ${MOBILE_THRESHOLD}px) {
-  }
 `;
 
 export const Description = styled.p`
   color: ${(props) => (props.primary ? "white" : "#333333")};
   font-size: 14px;
   background: #fdfdfd;
-  //width: 100%;
-
-  @media (max-width: ${MOBILE_THRESHOLD}px) {
-    width: 200px;
-  }
 `;
 
 export const Tags = styled.button`
@@ -174,42 +163,53 @@ export const Image = styled.img`
   overflow: hidden;
   display: block;
   border-radius: 10px 0px 0px 10px;
-  max-width: 600px;
-  min-width: 300px;
-  width: 400px;
-  height: 450px;
-  //transform: translate(0%, 0%);
+  //max-width: 600px;
+  //min-width: 300px;
+  //height: 400px;
+  //min-height: 350px;
+  //max-height: 500px;
+  transform: translate(0%, 0%);
 
-  @media (max-width: 450px) {
-    height: 250px;
-    width: 200px;
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    height: 70px;
+    width: 50px;
+    border-radius: 10px 10px 0px 0px;
   }
 `;
 
 export const Row = styled.div`
   flex-direction: row;
   display: flex;
-  margin-bottom: 10px;
+  //margin-bottom: 10px;
   align-items: center;
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    flex-direction: column;
+  }
 `;
 
 export const Left = styled.div`
-  width: 500px;
+  //width: 500px;
   display: flex;
   justify-content: center;
   @media (max-width: ${MOBILE_THRESHOLD}px) {
-    justify-content: space-around;
-    width: 300px;
+    //width: 100px;
+    //height: 70px;
   }
 `;
 
 export const RSVPButton = styled.button`
   padding: 5px 15px;
-  display: block;
   font-size: 14px;
   border-radius: 10px;
   border-width: 2px;
-  width: 100%;
+  min-width: 30%;
+  max-width: 45%;
   background: ${(props) => props.theme.hue.blue};
   color: ${(props) => (props.primary ? "#333333" : "white")};
+  position: absolute;
+  top: 85%;
+  left: 55%;
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    width: 30%;
+  }
 `;
