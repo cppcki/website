@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Col } from "./Footer/styles";
 
-const MOBILE_THRESHOLD = 900;
+const MOBILE_THRESHOLD = 800;
+
+const SECOND_THRESHOLD = 450;
 
 export function Modal() {
   const [modal, setModal] = useState(false);
@@ -43,8 +45,14 @@ export function Modal() {
                     <hr />
                   </TitleContent>
                   <Description>
-                    Compete with your fellow Dangos to find the best pairing for
-                    your Mentor/Mentee! Are you ready?
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum."
                   </Description>
                 </Container>
               </Row>
@@ -107,6 +115,10 @@ export const ModalPosition = styled.div`
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    top: 50%;
+  }
 `;
 
 ///////////////////////////////
@@ -120,24 +132,37 @@ export const ModalContent = styled.div`
   //max-height: 500px;
   //min-height: 350px;
   width: 900px;
+  height: 500px;
 
   @media (max-width: ${MOBILE_THRESHOLD}px) {
     border-radius: 10px;
     justify-content: center;
-    width: 500px;
-    height: 400px;
+    width: 400px;
+    height: 550px;
     align-items: center;
+  }
+
+  @media (max-width: ${SECOND_THRESHOLD}px) {
+    width: 300px;
+    height: 600px;
   }
 `;
 
 export const Container = styled.div`
   padding: 14px 28px;
-  width: 80%;
-  margin-bottom: 25%;
+  width: 45%;
+  position: absolute;
+  left: 55%;
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    width: 80%;
+    left: 10%;
+    top: 45%;
+  }
 `;
 
 export const TitleContent = styled.div`
-  line-height: 1;
+  line-height: 0.4;
 
   & > h2 {
     color: ${(props) => props.theme.hue.blue};
@@ -145,14 +170,21 @@ export const TitleContent = styled.div`
 
   & > h4 {
     color: ${(props) => (props.primary ? "white" : "#333333")};
-    font-size: 12px;
+  }
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    font-size: 11px;
   }
 `;
 
 export const Description = styled.p`
   color: ${(props) => (props.primary ? "white" : "#333333")};
   font-size: 14px;
-  background: #fdfdfd;
+  height: 300px;
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    font-size: 10px;
+  }
 `;
 
 export const Tags = styled.button`
@@ -163,24 +195,26 @@ export const Image = styled.img`
   overflow: hidden;
   display: block;
   border-radius: 10px 0px 0px 10px;
-  //max-width: 600px;
-  //min-width: 300px;
-  //height: 400px;
-  //min-height: 350px;
-  //max-height: 500px;
   transform: translate(0%, 0%);
+  height: 500px;
+  width: 500px;
 
   @media (max-width: ${MOBILE_THRESHOLD}px) {
-    height: 70px;
-    width: 50px;
-    border-radius: 10px 10px 0px 0px;
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  @media (max-width: ${SECOND_THRESHOLD}px) {
+    height: 230px;
+    width: 230px;
   }
 `;
 
 export const Row = styled.div`
   flex-direction: row;
   display: flex;
-  //margin-bottom: 10px;
   align-items: center;
   @media (max-width: ${MOBILE_THRESHOLD}px) {
     flex-direction: column;
@@ -188,13 +222,8 @@ export const Row = styled.div`
 `;
 
 export const Left = styled.div`
-  //width: 500px;
   display: flex;
   justify-content: center;
-  @media (max-width: ${MOBILE_THRESHOLD}px) {
-    //width: 100px;
-    //height: 70px;
-  }
 `;
 
 export const RSVPButton = styled.button`
@@ -208,8 +237,14 @@ export const RSVPButton = styled.button`
   color: ${(props) => (props.primary ? "#333333" : "white")};
   position: absolute;
   top: 85%;
-  left: 55%;
+  left: 60%;
   @media (max-width: ${MOBILE_THRESHOLD}px) {
-    width: 30%;
+    width: 45%;
+    left: 28%;
+    top: 90%;
+  }
+
+  @media (max-width: ${SECOND_THRESHOLD}px) {
+    top: 90%;
   }
 `;
