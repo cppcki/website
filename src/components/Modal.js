@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Col } from "./Footer/styles";
 
-const MOBILE_THRESHOLD = 800;
+const MOBILE_THRESHOLD = 900;
 
 const SECOND_THRESHOLD = 450;
 
@@ -40,10 +40,11 @@ export function Modal() {
                 <Container>
                   <TitleContent>
                     <h4>Saturday, November 6, 2022 @ 1pm - 3pm</h4>
-                    <h2>Mentor & Mentee Mixer</h2>
+                    <h2>Mentor & Mentee Mixer, Lorem ipsum dolor sit amet</h2>
                     <h4>The Quad @ Cal Poly Pomona</h4>
-                    <hr />
                   </TitleContent>
+                  <Tags>Leadership</Tags>
+                  <hr />
                   <Description>
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -56,6 +57,18 @@ export function Modal() {
                   </Description>
                 </Container>
               </Row>
+              <ProfileIamge
+                src="https://www.looper.com/img/gallery/the-actor-who-inspired-christian-bales-american-psycho-performance-isnt-who-you-think/l-intro-1614807948.jpg"
+                alt="test-image"
+              />
+              <ProfileIamge
+                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/thanos-screaming-avengers-infinity-war-1554285280.jpg?crop=1xw:1xh;center,top&resize=480:*"
+                alt="test-image"
+              />
+              <ProfileIamge
+                src="https://www.ctvnews.ca/polopoly_fs/1.4692721.1574189694!/httpImage/image.jpg_gen/derivatives/landscape_620/image.jpg"
+                alt="test-image"
+              />
               <RSVPButton>RSVP</RSVPButton>
               <CloseModal onClick={toggleModal}>X</CloseModal>
             </ModalContent>
@@ -68,7 +81,9 @@ export function Modal() {
 
 export const ModalDiv = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  //height: 100vh;
+  //Most likely can move this div to desired location on page than doing 1 hour of work
   top: 0;
   left: 0;
   right: 0;
@@ -78,7 +93,8 @@ export const ModalDiv = styled.div`
 
 export const Overlay = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  //height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -121,16 +137,10 @@ export const ModalPosition = styled.div`
   }
 `;
 
-///////////////////////////////
-
 export const ModalContent = styled.div`
   line-height: 1.4;
   background: #fdfdfd;
   border-radius: 10px;
-  //max-width: 900px;
-  //min-width: 400px;
-  //max-height: 500px;
-  //min-height: 350px;
   width: 900px;
   height: 500px;
 
@@ -153,19 +163,27 @@ export const Container = styled.div`
   width: 45%;
   position: absolute;
   left: 55%;
+  bottom: 3%;
 
   @media (max-width: ${MOBILE_THRESHOLD}px) {
-    width: 80%;
-    left: 10%;
+    width: 90%;
+    left: 5%;
     top: 45%;
+  }
+
+  @media (max-width: ${SECOND_THRESHOLD}px) {
+    top: 38%;
   }
 `;
 
 export const TitleContent = styled.div`
   line-height: 0.4;
+  height: 90px;
+  font-size: 13px;
 
   & > h2 {
     color: ${(props) => props.theme.hue.blue};
+    line-height: 1;
   }
 
   & > h4 {
@@ -187,8 +205,19 @@ export const Description = styled.p`
   }
 `;
 
-export const Tags = styled.button`
+export const Tags = styled.p`
   //Note: assuming these tags will act like category link, a button is recommended to go to that category.
+  background: #004b85;
+  display: block;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 11px;
+  width: 80px;
+  text-align: center;
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    margin-top: -3%;
+  }
 `;
 
 export const Image = styled.img`
@@ -235,16 +264,49 @@ export const RSVPButton = styled.button`
   max-width: 45%;
   background: ${(props) => props.theme.hue.blue};
   color: ${(props) => (props.primary ? "#333333" : "white")};
-  position: absolute;
-  top: 85%;
-  left: 60%;
+  position: relative;
+  bottom: 27%;
+  left: 58%;
   @media (max-width: ${MOBILE_THRESHOLD}px) {
     width: 45%;
     left: 28%;
-    top: 90%;
+    top: 27%;
   }
 
   @media (max-width: ${SECOND_THRESHOLD}px) {
-    top: 90%;
+    top: 37%;
   }
 `;
+
+export const ProfileIamge = styled.img`
+  overflow: hidden;
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  transform: translate(0%, 0%);
+  bottom: 20%;
+  left: 95%;
+  height: 30px;
+  width: 30px;
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    top: 30%;
+    left: 90%;
+  }
+
+  @media (max-width: ${SECOND_THRESHOLD}px) {
+    left: 88%;
+    top: 42%;
+  }
+`;
+
+/*
+Notes:
+ModalDiv and Overlay are important for placement of the modal and not destroying all the placement of everything else
+
+Line 24-26 is the button needed to activate the modal, not sure how to change the button to be something like clicking the event-card
+
+I most likely just publishing modal.js updates, so simply place the Modal file in any other file and click the button to test it, been mainly testing it in the Resources page.
+
+The modal works in the home page, but bounds are being problematic and placement, will try to fix
+*/
