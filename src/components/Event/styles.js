@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.button`
   display: flex;
   flex-direction: column;
-  border: solid 1px ${p => p.theme.hue.gray};
+  border: solid 1px ${(p) => p.theme.hue.gray};
   border-radius: 10px;
   min-width: 300px;
   background-color: transparent;

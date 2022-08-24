@@ -1,12 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-import { 
-  Anchor, 
-  Media,
-  Footer,
-  Navbar,
-  Events
-} from "components";
+import { Anchor, Media, Footer, Navbar, Events, Event } from "components";
 
 import Montage from "../../assets/media/montage.mp4";
 
@@ -18,13 +12,10 @@ import {
   Motto,
   Description,
   Premotto,
-  Container
+  Container,
 } from "./styles";
 
-
-
 export function Home() {
-
   const videoRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -35,13 +26,11 @@ export function Home() {
 
   return (
     <Wrapper>
-      <Navbar containerRef={containerRef} position="absolute" color="white"/>
+      <Navbar containerRef={containerRef} position="absolute" color="white" />
       <Container ref={containerRef}>
         <CarouselContent>
           <Motto>
-            <Premotto>
-              We love service 
-            </Premotto>
+            <Premotto>We love service</Premotto>
             so matcha!
           </Motto>
           <Description>
@@ -49,11 +38,11 @@ export function Home() {
             leadership development, and friendship organization in the world.
           </Description>
           <Anchor
-            fill="white" 
-            text="learn more" 
+            fill="white"
+            text="learn more"
             href="https://forms.gle/iBqpsS2ngCRVSnsn6"
           />
-          <Media/>
+          <Media />
         </CarouselContent>
         <Video
           ref={videoRef}
@@ -63,12 +52,13 @@ export function Home() {
           defaultMuted
           preload="auto"
           onContextMenu={() => false}
-          muted 
+          muted
           loop
         />
         <Content>
-          <Events/>
-          <Footer/>
+          <Events />
+          <Event />
+          <Footer />
         </Content>
       </Container>
     </Wrapper>

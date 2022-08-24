@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Col } from "./Footer/styles";
 
 const MOBILE_THRESHOLD = 900;
 
@@ -21,9 +20,7 @@ export function Modal() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
-        Open
-      </button>
+      <StartUp onClick={toggleModal} className="btn-modal"></StartUp>
 
       {modal && (
         <ModalDiv>
@@ -80,11 +77,9 @@ export function Modal() {
 }
 
 export const ModalDiv = styled.div`
-  width: 100vw;
+  width: auto;
   height: auto;
-  //height: 100vh;
-  //Most likely can move this div to desired location on page than doing 1 hour of work
-  top: 0;
+  top: 50%;
   left: 0;
   right: 0;
   bottom: 0;
@@ -92,9 +87,8 @@ export const ModalDiv = styled.div`
 `;
 
 export const Overlay = styled.div`
-  width: 100vw;
+  width: auto;
   height: auto;
-  //height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -300,11 +294,22 @@ export const ProfileIamge = styled.img`
   }
 `;
 
+export const StartUp = styled.button`
+  display: flex;
+  position: absolute;
+  border-radius: 10px;
+  background: transparent;
+  overflow: hidden;
+  border: 10px;
+  min-width: 300px;
+  min-height: 350px;
+`;
+
 /*
 Notes:
 ModalDiv and Overlay are important for placement of the modal and not destroying all the placement of everything else
 
-Line 24-26 is the button needed to activate the modal, not sure how to change the button to be something like clicking the event-card
+Line 24-26 is the button needed to activate the modal, not sure how to change the button to be something like clicking the event-card, but made an interesting solution but bad
 
 I most likely just publishing modal.js updates, so simply place the Modal file in any other file and click the button to test it, been mainly testing it in the Resources page.
 
