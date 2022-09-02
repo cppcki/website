@@ -4,7 +4,7 @@ import { ReactComponent as LinkedinSVG } from "../../assets/images/linkedin.svg"
 
 export const Container = styled.div`
   width: 200px;
-  height: 260px;
+  min-height: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;

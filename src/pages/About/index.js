@@ -16,11 +16,12 @@ import Annie from "../../assets/board/AnnieTaguchi.jpg";
 import Fabiola from "../../assets/board/Fabiola.jpg";
 import Lorenzo from "../../assets/board/LorenzoBarrios.jpg";
 import Nicole from "../../assets/board/NicoleWu.jpg";
-import Clarie from "../../assets/board/Clarie.jpg";
+import Clarie from "../../assets/board/Claire.jpg";
 import Fatima from "../../assets/board/Fatima.jpg";
 import Gaelen from "../../assets/board/Gaelen.jpg";
 import William from "../../assets/board/William.jpg";
 import Johnny from "../../assets/board/JohnnyQiu.jpg";
+import Minami from "../../assets/board/Minami.jpg";
 
 import Banquet from "../../assets/images/banquet_brush.png";
 
@@ -74,7 +75,12 @@ export function About() {
             position="VP of Service"
             linkedin="https://www.linkedin.com/in/fabiola-garcia-4bb991239/"
           />
-          <Avatar src={Clarie} name="Claire Feld" position="Secretary" />
+          <Avatar 
+            src={Clarie} 
+            name="Claire Feld" 
+            position="Secretary" 
+            linkedin="https://www.linkedin.com/in/claire-f-b8906324a/"
+          />
           <Avatar
             src={Lorenzo}
             name="Lorenzo Barrios"
@@ -94,16 +100,22 @@ export function About() {
             linkedin="https://www.linkedin.com/in/gaelensomera/"
           />
           <Avatar
-            src={William}
-            name="William Phan"
-            position="Fundraising Chair"
-            linkedin="https://www.linkedin.com/in/william-phan-3228b0245"
-          />
-          <Avatar
             src={Johnny}
             name="Johnny Qiu"
             position="Kiwanis Family Relations Chair"
             linkedin="https://www.linkedin.com/in/johnny-qiu-896a7b245"
+          />
+          <Avatar
+            src={Minami}
+            name="Ashley 'Minami' Chung"
+            position="Membership Retention and Recognition Chair"
+            linkedin="https://www.linkedin.com/in/ashley-chung-5976b423b/"
+          />
+          <Avatar
+            src={William}
+            name="William Phan"
+            position="Fundraising Chair"
+            linkedin="https://www.linkedin.com/in/william-phan-3228b0245"
           />
         </AvatarContainer>
         <Footer />
