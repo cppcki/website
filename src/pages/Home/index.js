@@ -1,15 +1,15 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 import { 
   Anchor, 
   Media,
   Footer,
   Navbar,
-  Events
+  Events,
+  Tenants
 } from "components";
 
 import Montage from "../../assets/media/montage.mp4";
-
 import {
   Wrapper,
   Video,
@@ -20,8 +20,6 @@ import {
   Premotto,
   Container
 } from "./styles";
-
-
 
 export function Home() {
 
@@ -67,6 +65,7 @@ export function Home() {
           loop
         />
         <Content>
+          <Tenants/>
           <Events/>
           <Footer/>
         </Content>

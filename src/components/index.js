@@ -8,3 +8,5 @@ export * from "./Footer";
 export * from "./Event";
 export * from "./About";
 export * from "./Events";
+export * from "./Dango";
+export * from "./Tenants";
