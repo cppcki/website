@@ -24,7 +24,7 @@ export function Tenants() {
       <Content>
         <img src={Lit} width="133" alt="Fellowship" />
         <h1>Fellowship</h1>
-        <Describe>Create a sense of community wihtin the club and enable members to have tight-knit bonds with one another.</Describe>
+        <Describe>Create a sense of community within the club and enable members to have tight-knit bonds with one another.</Describe>
       </Content>
     </Container>
   );
