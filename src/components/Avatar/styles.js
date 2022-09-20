@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as WebSVG } from "../../assets/images/web.svg";
 import { ReactComponent as LinkedinSVG } from "../../assets/images/linkedin.svg";
+import { ReactComponent as EmailSVG } from "../../assets/images/email.svg";
 
 export const Container = styled.div`
   width: 200px;
@@ -26,6 +27,14 @@ export const Linkedin = styled(LinkedinSVG)`
   fill: ${p => p.theme.hue.gold};
   width: 16px;
   height: 16px;
+`;
+
+export const Email = styled(EmailSVG)`
+  width: 16px;
+  height: 16px;
+  & > path {
+    fill: ${p => p.theme.hue.gold};
+  }
 `;
 
 export const Text = styled.div`
