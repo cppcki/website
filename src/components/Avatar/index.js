@@ -5,11 +5,12 @@ import {
   Person,
   Web,
   Linkedin,
-  LinkWrapper
+  LinkWrapper,
+  Email
 } from "./styles";
 
 export function Avatar(props) {
-  const { name, position, src, linkedin, website } = props;
+  const { name, position, src, linkedin, website, email } = props;
   return (
     <Container>
       <Person src={src}/>
@@ -25,6 +26,12 @@ export function Avatar(props) {
           linkedin &&
           <a href={linkedin}>
             <Linkedin/>
+          </a>
+        }
+        {
+        email &&
+          <a href={email}>
+            <Email/>
           </a>
         }
       </LinkWrapper>
