@@ -1,13 +1,11 @@
 import { useRef, useEffect } from "react";
 
-import { 
-  Anchor, 
-  Media,
-  Footer,
-  Navbar,
-  Events,
-  Tenants
-} from "components";
+import Anchor from "components/Anchor";
+import Media from "components/Media";
+import Footer from "components/Footer";
+import Navbar from "components/Navbar";
+import Events from "components/Events";
+import Tenants from "components/Tenants";
 
 import Montage from "../../assets/media/montage.mp4";
 import {

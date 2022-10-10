@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Banquet from "../assets/images/banquet_brush.png";
 
-export function About() {
+export default function About() {
   return (
     <Container>
       <Flex>

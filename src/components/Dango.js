@@ -1,20 +1,11 @@
 import styled from "styled-components";
 
-import { Anchor } from "../components/Anchor";
+import { Anchor } from "components/Anchor";
 import DericGoat from "../assets/images/goatDerric.jpg";
 import Totoro from "../assets/images/totoroWonderCon.jpg";
 import DangoGroup from "../assets/images/groupDango.jpg";
 
-// Project directory
-// `cd ~/Documents/cki-website`
-
-// Update dependencies
-// `npm` || `npm install` # based on package.json
-
-// Run Server
-// `npm start`
-
-export function Dango(){
+export default function Dango(){
   return (
     <Container>
       <Left>
@@ -36,7 +27,6 @@ export function Dango(){
 }
 
 const Container = styled.div`
-  /* background-color: red; */
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -54,7 +44,6 @@ const Heading = styled.h1`
 `;
 
 const Left = styled.div`
-  /* background-color: orange; */
   width: 40%;
   min-width: 300px;
   height: 400px;
