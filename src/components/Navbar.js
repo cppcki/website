@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Header } from "components";
+import Header from "components/Header";
 
 import { ReactComponent as HamburgerIcon } from "../assets/images/hamburger.svg";
 
@@ -12,7 +12,7 @@ const disableScroll = () => {
   window.scrollTo(0, 0);
 }
 
-export function Navbar(props) {
+export default function Navbar(props) {
   const { color, containerRef, position } = props;
 
   const [windowDimension, setWindowDimension] = useState({

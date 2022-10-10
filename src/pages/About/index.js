@@ -1,4 +1,6 @@
-import { Navbar, Avatar, Footer, Event } from "../../components";
+import Navbar from "components/Navbar";
+import Avatar from "components/Avatar";
+import Footer from "components/Footer";
 
 import {
   Flex,

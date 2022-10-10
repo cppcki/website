@@ -1,14 +1,10 @@
-import {
-  Container, 
-  Content,
-  Describe
-} from "./styles";
+import Cool from "../assets/images/CoolDango.png";
+import Lit from "../assets/images/LitDango.png";
+import Plant from "../assets/images/PlantDango.png";
 
-import Cool from "../../assets/images/CoolDango.png";
-import Lit from "../../assets/images/LitDango.png";
-import Plant from "../../assets/images/PlantDango.png";
+import styled from "styled-components";
 
-export function Tenants() {
+export default function Tenants() {
   return (
     <Container>
       <Content>
@@ -29,3 +25,24 @@ export function Tenants() {
     </Container>
   );
 }
+
+export const Container = styled.div`
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex: 1;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  max-width: 300px;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Describe = styled.p`
+  text-align: center;
+`;
