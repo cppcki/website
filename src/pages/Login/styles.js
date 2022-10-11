@@ -15,12 +15,15 @@ export const Container = styled.div`
   height: fit-content;
   margin-bottom: 200px;
   width: auto;
+  @media (max-width: 650px) {
+    width: auto;
+    margin: auto;
+  }
 `;
 
 export const OutsideContainer = styled.div`
   max-width: 800px;
   margin: auto;
-  margin-top: 13%;
 `;
 
 export const Description = styled.p`
@@ -32,24 +35,21 @@ export const Description = styled.p`
 export const Right = styled.div`
   margin-left: 100px;
   margin-top: 150px;
-  width: 601px;
+  width: 600px;
   display: flex;
   justify-content: center;
   @media (max-width: 650px) {
-    width: 110%;
-    margin-top: 100px;
-    margin-left: 0px;
+    width: 100px;
+    margin: auto;
   }
 `;
 
 export const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
-  min-height: 400px;
   margin-left: 100px;
   @media (max-width: 650px) {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 5px;
   }
 `;
 
@@ -57,6 +57,7 @@ export const Row = styled.div`
   align-items: center;
   flex-wrap: wrap;
   display: flex;
+  margin-top: 20px;
   flex-direction: row;
   @media (max-width: 650px) {
     flex-direction: column;
@@ -67,5 +68,6 @@ export const Content = styled.div`
   width: 601px;
   @media (max-width: 650px) {
     width: 100%;
+    margin-top: 5px;
   }
 `;
