@@ -15,8 +15,8 @@ export default function Footer() {
         <HeadingRow>
           <StyledLink to="/">
             <Logo src={CKI_Logo} alt="Circle K International Logo" />
-            <Heading>Circle K</Heading>
-            <Subheading>Cal Poly Pomona</Subheading>
+            <Heading>circle k</Heading>
+            <Subheading>cal poly pomona</Subheading>
           </StyledLink>
         </HeadingRow>
         <Row aligin="center">
