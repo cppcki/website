@@ -7,7 +7,7 @@ const PLACEHOLDER_IMAGE = "https://drive.google.com/uc?export=view&id=1FRtJ1v2NL
 
 export default function Event(props) {
 
-  const { title, rsvp, startTime, endTime, location, thumbnail } = props;
+  const { title, rsvp, startTime, endTime, location, thumbnail, type: types } = props;
 
   const date = useMemo(() => {
     // Greenwich Mean Time is 7 hours (25200 seconds) ahead of PST 
@@ -18,10 +18,25 @@ export default function Event(props) {
     return `${startingDay} @ ${startingTime.toLowerCase()}`
   }, [startTime]);
 
+  console.log(types);
+
+  const tags = useMemo(() => {
+    return types?.map((type) => {
+      return (
+        <Tag>
+        {type}
+        </Tag>
+      )
+    });
+  })
+
   return (
     <Container>
       <Image src={thumbnail} alt={`${title} event`}/>
       <Content>
+        <TagContainer>
+          {tags}
+        </TagContainer>
         <CardDate>
           <DateIcon />
           {date}
@@ -53,6 +68,21 @@ const Container = styled.div`
 const Content = styled.div`
   width: 100%;
   padding: 10px;
+`;
+
+const TagContainer = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
+
+const Tag = styled.div`
+  border-radius: 5px;
+  background-color: ${(props) => props.theme.hue.blue};
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: ${(props) => props.theme.hue.gray};
 `;
 
 const Image = styled.img`
