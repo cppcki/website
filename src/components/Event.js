@@ -28,7 +28,7 @@ export default function Event(props) {
         </Tag>
       )
     });
-  })
+  }, [types])
 
   return (
     <Container>
