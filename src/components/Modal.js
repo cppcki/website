@@ -14,8 +14,10 @@ export function Modal() {
 
   if (modal) {
     document.body.classList.add("active-modal");
+    document.body.style.overflow = "hidden";
   } else {
     document.body.classList.remove("active-modal");
+    document.body.style.overflow = "unset";
   }
 
   return (
@@ -88,7 +90,7 @@ export const ModalDiv = styled.div`
 
 export const Overlay = styled.div`
   width: auto;
-  height: auto;
+  height: 200%;
   top: 0;
   left: 0;
   right: 0;
@@ -218,7 +220,6 @@ export const Image = styled.img`
   overflow: hidden;
   display: block;
   border-radius: 10px 0px 0px 10px;
-  transform: translate(0%, 0%);
   height: 500px;
   width: 500px;
 
@@ -253,9 +254,8 @@ export const RSVPButton = styled.button`
   padding: 5px 15px;
   font-size: 14px;
   border-radius: 10px;
-  border-width: 2px;
-  min-width: 30%;
-  max-width: 45%;
+  border-width: 0px;
+  width: 30%;
   background: ${(props) => props.theme.hue.blue};
   color: ${(props) => (props.primary ? "#333333" : "white")};
   position: relative;
@@ -277,7 +277,6 @@ export const ProfileIamge = styled.img`
   position: relative;
   display: block;
   border-radius: 50%;
-  transform: translate(0%, 0%);
   bottom: 20%;
   left: 95%;
   height: 30px;
@@ -290,7 +289,7 @@ export const ProfileIamge = styled.img`
 
   @media (max-width: ${SECOND_THRESHOLD}px) {
     left: 88%;
-    top: 42%;
+    top: 40%;
   }
 `;
 
