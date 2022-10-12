@@ -56,15 +56,15 @@ export function Modal() {
                   </Description>
                 </Container>
               </Row>
-              <ProfileIamge
+              <ProfileIamge1
                 src="https://www.looper.com/img/gallery/the-actor-who-inspired-christian-bales-american-psycho-performance-isnt-who-you-think/l-intro-1614807948.jpg"
                 alt="test-image"
               />
-              <ProfileIamge
+              <ProfileIamge2
                 src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/thanos-screaming-avengers-infinity-war-1554285280.jpg?crop=1xw:1xh;center,top&resize=480:*"
                 alt="test-image"
               />
-              <ProfileIamge
+              <ProfileIamge3
                 src="https://www.ctvnews.ca/polopoly_fs/1.4692721.1574189694!/httpImage/image.jpg_gen/derivatives/landscape_620/image.jpg"
                 alt="test-image"
               />
@@ -156,7 +156,6 @@ export const ModalContent = styled.div`
 
 export const Container = styled.div`
   padding: 14px 28px;
-  width: 45%;
   position: absolute;
   left: 55%;
   bottom: 3%;
@@ -255,36 +254,81 @@ export const RSVPButton = styled.button`
   font-size: 14px;
   border-radius: 10px;
   border-width: 0px;
-  width: 30%;
+  width: 25%;
   background: ${(props) => props.theme.hue.blue};
   color: ${(props) => (props.primary ? "#333333" : "white")};
   position: relative;
-  bottom: 27%;
-  left: 58%;
+  display: block;
+  bottom: 15%;
+  left: 60%;
   @media (max-width: ${MOBILE_THRESHOLD}px) {
     width: 45%;
-    left: 28%;
-    top: 27%;
+    transform: translate(-8rem, 18rem);
   }
 
   @media (max-width: ${SECOND_THRESHOLD}px) {
-    top: 37%;
+    transform: translate(-75%, 23rem);
   }
 `;
 
-export const ProfileIamge = styled.img`
+export const ProfileIamge1 = styled.img`
   overflow: hidden;
   position: relative;
-  display: block;
   border-radius: 50%;
-  bottom: 20%;
-  left: 95%;
+  bottom: 9%;
+  left: 88%;
   height: 30px;
   width: 30px;
+  transform: translate(10px);
 
   @media (max-width: ${MOBILE_THRESHOLD}px) {
     top: 30%;
     left: 90%;
+    transform: translate(-40px, 70px);
+  }
+
+  @media (max-width: ${SECOND_THRESHOLD}px) {
+    left: 88%;
+    top: 40%;
+  }
+`;
+
+export const ProfileIamge2 = styled.img`
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  bottom: 9%;
+  left: 88%;
+  height: 30px;
+  width: 30px;
+  transform: translate(-5px);
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    top: 30%;
+    left: 90%;
+    transform: translate(-50px, 70px);
+  }
+
+  @media (max-width: ${SECOND_THRESHOLD}px) {
+    left: 88%;
+    top: 40%;
+  }
+`;
+
+export const ProfileIamge3 = styled.img`
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  bottom: 9%;
+  left: 88%;
+  height: 30px;
+  width: 30px;
+  transform: translate(-20px);
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    top: 30%;
+    left: 90%;
+    transform: translate(-60px, 70px);
   }
 
   @media (max-width: ${SECOND_THRESHOLD}px) {
