@@ -1,15 +1,13 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
-import { 
-  Anchor, 
-  Media,
-  Footer,
-  Navbar,
-  Events
-} from "components";
+import Anchor from "components/Anchor";
+import Media from "components/Media";
+import Footer from "components/Footer";
+import Navbar from "components/Navbar";
+import Events from "components/Events";
+import Tenants from "components/Tenants";
 
 import Montage from "../../assets/media/montage.mp4";
-
 import {
   Wrapper,
   Video,
@@ -20,8 +18,6 @@ import {
   Premotto,
   Container
 } from "./styles";
-
-
 
 export function Home() {
 
@@ -67,6 +63,7 @@ export function Home() {
           loop
         />
         <Content>
+          <Tenants/>
           <Events/>
           <Footer/>
         </Content>
