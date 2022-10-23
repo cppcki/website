@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Navbar from "components/Navbar";
+import Fullerton from "../../assets/images/fullerton.jpg";
 
 /*
 Personal notes:
@@ -13,6 +14,8 @@ Personal notes:
   Then can hold image and a bottom box containing the link to other club sites
   
   make two types of containers for row and column?
+
+  //each box is its own div with bounds for simpler BS
 */
 
 export function Resources() {
@@ -21,12 +24,25 @@ export function Resources() {
       <Navbar />
       <Container>
         <Box>
-          <BoxImage />
-          <BoxContents></BoxContents>
+          <BoxImage src={Fullerton} alt="its fullerton" />
+          <BoxContents>
+            <p>test</p>
+          </BoxContents>
+        </Box>
+        <Box>
+          <BoxImage src={Fullerton} alt="its fullerton" />
+          <BoxContents>
+            <p>test</p>
+          </BoxContents>
         </Box>
         <Box>
           <BoxImage />
           <BoxContents></BoxContents>
+        </Box>
+      </Container>
+      <Container>
+        <Box>
+          <BoxImage />
         </Box>
       </Container>
     </div>
@@ -39,19 +55,33 @@ const Container = styled.div`
   align-items: center;
   flex-direction: row;
   gap: 5rem;
+  padding: 5px;
+  //@media, make flex direction column
 `;
 
 const Box = styled.div`
-  background-color: darkgray;
-  border-radius: 5px;
+  color: white;
+  border-radius: 10px;
   color: "#eee";
-  min-height: 200px;
+  width: 300px;
+  height: 200px;
   padding: 12;
   width: 300px;
+  position: relative;
+  text-align: center;
 `;
 
-const BoxImage = styled.img``;
+const BoxImage = styled.img`
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+`;
 
-const BoxContents = styled.div``;
+const BoxContents = styled.div`
+  position: absolute;
+  top: 8px;
+`;
 
-const Boxbtn = styled.button``;
+const Boxbtn = styled.button`
+  cursor: pointer;
+`;
