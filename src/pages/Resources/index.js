@@ -100,9 +100,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 5rem;
   padding: 5px;
-  //@media, make flex direction column
 `;
 
 const Title = styled.h2`
