@@ -17,9 +17,7 @@ export function Resources() {
           <BoxContents>
             <p>Pasadena City College</p>
             <button>
-              <a href="https://lancerlife.pasadena.edu/organization/cki">
-                TEMP SITE
-              </a>
+              <a href="https://www.instagram.com/ckipcc/">Visit</a>
             </button>
           </BoxContents>
         </Box>
@@ -33,7 +31,7 @@ export function Resources() {
           <BoxContents>
             <p>Los Angeles City College</p>
             <button>
-              <a href="">No Site</a>
+              <a href="https://www.instagram.com/lacccki/">Visit</a>
             </button>
           </BoxContents>
         </Box>
@@ -46,7 +44,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>Claremont Colleges</p>
-            <button>No Site</button>
+            <button>
+              <a href="http://claremontcki.weebly.com/">Visit</a>
+            </button>
           </BoxContents>
         </Box>
         <Box>
@@ -58,7 +58,37 @@ export function Resources() {
           />
           <BoxContents>
             <p>California State University Los Angeles</p>
-            <button>No Site</button>
+            <button>
+              <a href="https://www.instagram.com/cki_csula">Visit</a>
+            </button>
+          </BoxContents>
+        </Box>
+        <Box>
+          <img
+            src={
+              "https://s3.amazonaws.com/photos.niche.com/0f6ab87f02d8e4074dc878fc8faf8286245fb338"
+            }
+            alt="its CSULA"
+          />
+          <BoxContents>
+            <p>Mount San Antonio College</p>
+            <button>
+              <a href="https://www.instagram.com/mtsaccki/">Visit</a>
+            </button>
+          </BoxContents>
+        </Box>
+        <Box>
+          <img
+            src={
+              "https://www.selacollab.org/wp-content/uploads/2019/03/ELAC-letter-Monterey-Park-campus.jpg"
+            }
+            alt="its CSULA"
+          />
+          <BoxContents>
+            <p>East Los Angeles College</p>
+            <button>
+              <a href="https://www.instagram.com/elac_cki">Visit</a>
+            </button>
           </BoxContents>
         </Box>
       </Container>
