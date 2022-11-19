@@ -1,0 +1,99 @@
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  GUEST
+  MEMBER
+  ADMIN
+}
+
+enum TENANT {
+  SERVICE
+  LEADERSHIP
+  FELLOWSHIP
+}
+
+enum LEVEL {
+  CLUB
+  DISTRICT
+  NATIONAL
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String  @map("user_id")
+  type               String
+  provider           String
+  providerAccountId  String  @map("provider_account_id")
+  refresh_token      String?
+  access_token       String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?
+  session_state      String?
+  oauth_token_secret String?
+  oauth_token        String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  id         Int      @id @default(autoincrement())
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  username      String?
+  email         String?   @unique
+  avatar        String?
+  discriminator String?
+  bio           String?
+  emailVerified DateTime?
+  firstName     String?
+  lastName      String?
+  updateAt      DateTime  @updatedAt
+  createdAt     DateTime  @default(now())
+  role          Role      @default(GUEST)
+  going_events  Event[]
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Event {
+  eventId       String    @default(uuid()) @id
+  title         String
+  description   String
+  published     Boolean   @default(false)
+  updateAt      DateTime  @updatedAt
+  startTime     DateTime
+  endTime       DateTime 
+  thumbnail     String    @default("https://drive.google.com/uc?export=view&id=1NT8vNDPG47Si6hE8g6JspJV5zj_MlqQx")
+  createdById   String
+  tenants       TENANT[]
+  level         LEVEL     @default(CLUB)
+  createdBy     User   @relation(fields: [createdById], references: [id])
+}
