@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Navbar from "components/Navbar";
+import Footer from "components/Footer";
 
 export function Resources() {
   return (
@@ -16,9 +17,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>Pasadena City College</p>
-            <button>
-              <a href="https://www.instagram.com/ckipcc/">Visit</a>
-            </button>
+            <a href="https://www.instagram.com/ckipcc/" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
         <Box>
@@ -30,9 +31,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>Los Angeles City College</p>
-            <button>
-              <a href="https://www.instagram.com/lacccki/">Visit</a>
-            </button>
+            <a href="https://www.instagram.com/lacccki/" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
         <Box>
@@ -44,9 +45,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>Claremont Colleges</p>
-            <button>
-              <a href="http://claremontcki.weebly.com/">Visit</a>
-            </button>
+            <a href="http://claremontcki.weebly.com/" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
         <Box>
@@ -58,9 +59,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>California State University Los Angeles</p>
-            <button>
-              <a href="https://www.instagram.com/cki_csula">Visit</a>
-            </button>
+            <a href="https://www.instagram.com/cki_csula" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
         <Box>
@@ -72,9 +73,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>Mount San Antonio College</p>
-            <button>
-              <a href="https://www.instagram.com/mtsaccki/">Visit</a>
-            </button>
+            <a href="https://www.instagram.com/mtsaccki/" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
         <Box>
@@ -86,9 +87,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>East Los Angeles College</p>
-            <button>
-              <a href="https://www.instagram.com/elac_cki">Visit</a>
-            </button>
+            <a href="https://www.instagram.com/elac_cki" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
       </Container>
@@ -103,9 +104,9 @@ export function Resources() {
           />
           <BoxContents>
             <p>Circle K International Website</p>
-            <button>
-              <a href="http://www.cnhcirclek.org">Visit</a>
-            </button>
+            <a href="http://www.cnhcirclek.org" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
         <Box>
@@ -115,12 +116,13 @@ export function Resources() {
           />
           <BoxContents>
             <p>Circle K International Facebook</p>
-            <button>
-              <a href="https://www.facebook.com/cnhcirclek">Visit</a>
-            </button>
+            <a href="https://www.facebook.com/cnhcirclek" target="_blank">
+              <button>Visit</button>
+            </a>
           </BoxContents>
         </Box>
       </Container>
+      <Footer />
     </div>
   );
 }
@@ -188,6 +190,27 @@ const BoxContents = styled.div`
       text-align: center;
     }
     & > a:hover {
+      color: ${(props) => props.theme.hue.gold};
+    }
+  }
+  & > a {
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    & > button {
+      cursor: pointer;
+      height: 30px;
+      width: 120px;
+      border-radius: 5px;
+      color: black;
+      text-align: center;
+      position: absolute;
+      background-color: white;
+      top: 140px;
+      left: 10px;
+    }
+    & > button:hover {
       color: ${(props) => props.theme.hue.gold};
     }
   }
