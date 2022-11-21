@@ -1,6 +1,6 @@
 import { NextApiHandler } from "next";
 import NextAuth from "next-auth/next";
-import DiscordProvider from "next-auth/providers/discord";
+import DiscordProvider, { DiscordProfile } from "next-auth/providers/discord";
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from "@app/prisma";
 // import adapter from "@app/lib/adapter";
@@ -15,6 +15,41 @@ if (!process.env.DISCORD_SECRET) {
   throw new Error("Failed to find Discord's secret");
 }
 
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      discriminator: string;
+      avatar: string;
+      username: string;
+      email: string;
+      role: string;
+    }
+  }
+}
+
+function profile(profile: DiscordProfile) {
+  let image_url: string;
+
+  if (profile.avatar === null) {
+    const defaultAvatarNumber = parseInt(profile.discriminator, 10) % 5;
+    image_url = `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNumber}.png`;
+  } else {
+    const format = profile.avatar.startsWith('a_') ? 'gif' : 'png';
+    image_url = `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${format}`;
+  }
+
+  console.log("@fromProfile", profile);
+
+  return {
+    id: profile.id,
+    discriminator: profile.discriminator,
+    avatar: image_url,
+    username: profile.username,
+    email: profile.email,
+  }
+}
+
 const options = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -26,32 +61,11 @@ const options = {
           scope: scopes
         }
       },
-      profile(profile) {
-        let image_url: string;
-
-        if (profile.avatar === null) {
-          const defaultAvatarNumber = parseInt(profile.discriminator, 10) % 5;
-          image_url = `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNumber}.png`;
-        } else {
-          const format = profile.avatar.startsWith('a_') ? 'gif' : 'png';
-          image_url = `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${format}`;
-        }
-
-        console.log("@fromProfile", profile);
-
-        return {
-          id: profile.id,
-          discriminator: profile.discriminator,
-          avatar: image_url,
-          username: profile.username,
-          email: profile.email,
-        }
-      }
+      profile
     })
   ],
   callbacks: {
     async session({ session, user }: any) {
-      console.log("@invoke session", user);
       return {
         ...session,
         user,

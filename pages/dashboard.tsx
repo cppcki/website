@@ -1,45 +1,51 @@
-
-import Button from "@app/components/Button";
+import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useRouter } from 'next/navigation';
 import { prisma, serialize } from "@app/prisma";
 
-function Dashboard() {
+import Drawer from "@app/components/Drawer";
+import Events from "@app/components/Events";
 
-  const { data, status } = useSession();
-  const router = useRouter();
+function Dashboard(props: any) {
 
-  const handleSignOut = async () => {
-    signOut({
-      callbackUrl: `${window.location.origin}`
-    });
-  }
-
-  console.log(data);
+  const { events } = props;
 
   return (
     <div>
-      <div>
-        <code>
-          {JSON.stringify(data)}
-        </code>
-      </div>
-      <Button onClick={handleSignOut}>Signout</Button>
+      <Head>
+        <title>Dashboard - Circle K @ CPP</title>
+      </Head>
+      <main className="flex">
+        <Drawer/>
+        <Events events={events}/>
+      </main>
     </div>
   );
 }
 
 export async function getServerSideProps(context: any) {
 
-  // console.log(context);
-  // const user = await prisma.user.findUnique();
-  
-  // console.log(user);
+  const events = await prisma.event.findMany({
+    include: {
+      createdBy: {
+        select: {
+          username: true,
+          avatar: true
+        }
+      }
+    }
+  });
 
   return {
     props: {
+      events: serialize(events)
     }
   }
+}
+
+Dashboard.auth = {
+  role: "member",
+  loading: <p>dashboard loading...</p>,
+  unauthorized: "/login"
 }
 
 export default Dashboard;

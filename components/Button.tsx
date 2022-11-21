@@ -1,14 +1,35 @@
 import { SyntheticEvent } from "react";
 
 type ButtonProps = {
-  className?: string,
+  className?: string
   children?: React.ReactNode
+  design?: string
   onClick?: (event: SyntheticEvent) => void
 }
 
 function Button(props: ButtonProps) {
 
-  const { className, onClick } = props;
+  const { design, className, onClick } = props;
+
+  if (design === "outline") {
+    return (
+      <button
+        onClick={onClick}
+        className={`border-2 border-blue text-blue p-1 rounded-md hover:bg-blue hover:text-white ${className}`}>
+        {props.children}
+      </button>
+    );
+  }
+
+  if (design === "none") {
+    return (
+      <button
+        onClick={onClick}
+        className={`rounded-md ${className}`}>
+        {props.children}
+      </button>
+    );
+  }
 
   return (
     <button

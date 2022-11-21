@@ -50,34 +50,41 @@ function Login() {
       <Head>
         <title>Login - Circle K @ CPP </title>
       </Head>
-      <main className="flex justify-around align-middle">
-        <div className="flex flex-col w-96 h-60">
-          <Header/>
-          <h1 className="text-xl font-bold m-auto">Stay connected with the circle and never ever miss another dango again.</h1>
-        </div>
-        <div className="w-72">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-2 max-w-sm">
-            <TextInput
-              name="email"
-              label="email"
-              type="text"
-              placeholder="ligma@cpp.edu"
-              value={input.email}
-              onChange={handleInput}
-            />
-            <TextInput
-              name="password"
-              label="password"
-              type="text"
-              placeholder="••••••••••••••"
-              value={input.password}
-              onChange={handleInput}
-            />
-            <Button className="mt-2">Log in</Button>
-          </form>
-          <Button onClick={handleDiscordAuth}>Login with Discord</Button>
-        </div>
-      </main>
+      <section className="flex w-screen h-screen">
+        <main className="flex m-auto gap-x-40 flex-wrap">
+          <div className="flex flex-col w-96 h-60">
+            <Header/>
+            <h1 className="text-3xl font-medium m-auto">Stay connected with the circle and never ever miss another dango again.</h1>
+          </div>
+          <div className="w-72">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2 max-w-sm">
+              <TextInput
+                name="email"
+                label="email"
+                type="text"
+                placeholder="ligma@cpp.edu"
+                value={input.email}
+                onChange={handleInput}
+              />
+              <TextInput
+                name="password"
+                label="password"
+                type="text"
+                placeholder="••••••••••••••"
+                value={input.password}
+                onChange={handleInput}
+              />
+              <Button className="mt-2">Log in</Button>
+            </form>
+            <div className="flex flex-col mt-3">
+              <Button design="none" className="text-sm hover:text-blue">forgot password?</Button>
+              <hr className="my-2 border-[0.2] border-gray"/>
+              <Button design="none" className="text-sm p-2">Don't have an account? <span className="ml-1 text-gold">Sign up</span></Button>
+              <Button design="outline" className="mt-1" onClick={handleDiscordAuth}>Login with Discord</Button>
+            </div>
+          </div>
+        </main>
+      </section>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import Navbar from "@app/components/Navbar";
 import Anchor from "@app/components/Anchor";
-import Events from "@app/components/Events";
 
 import { prisma, serialize } from "@app/prisma";
 
@@ -63,7 +62,6 @@ export default function Home(props: any) {
       <main className="flex flex-col">
         <Hero/>
         <Montage/>
-        <Events events={events}/>
       </main>
     </div>
   );
