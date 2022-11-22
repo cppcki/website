@@ -14,7 +14,7 @@ function Dashboard(props: any) {
       <Head>
         <title>Dashboard - Circle K @ CPP</title>
       </Head>
-      <main className="flex">
+      <main className="md:flex">
         <Drawer/>
         <Events events={events}/>
       </main>

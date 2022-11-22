@@ -24,7 +24,7 @@ function DrawerItem(props: DrawerItemProps) {
     <li className="hover:bg-[#cacaca33] rounded-md p-3">
       <Link className="flex" href={href}>
         <Icon width="30" height="30"/>
-        <span className="m-auto ml-2 text-lg item">{label}</span>
+        <span className="m-auto ml-2 text-lg hidden lg:block">{label}</span>
       </Link>
     </li> 
   );
@@ -41,12 +41,12 @@ function Drawer() {
   }
 
   return (
-    <nav className="border-r border-gray p-10 fixed h-screen bg-white">
-      <div className="flex w-fit">
+    <nav className="flex justify-between md:block border-r border-gray p-4 lg:p-10 lg:fixed lg:h-screen bg-white">
+      <div className="flex w-fit my-auto md:m-auto md:my-5">
         <Image className="w-10 h-10" src={Logo} alt="Circle K International" width="50" height="50"/>
-        <h1 className="text-3xl font-bold text-blue mb-10 ml-3">Portal</h1>
+        <h1 className="text-3xl font-bold text-blue mb-10 ml-3 hidden lg:block">Portal</h1>
       </div>
-      <ul className="flex flex-col gap-y-7 w-fit">
+      <ul className="flex md:flex-col gap-y-7 w-fit">
         <DrawerItem label="Home" href="/dashboard" icon={Home}/>
         <DrawerItem label="Leaderboard" href="/leaderboard" icon={Leaderboard}/>
         <DrawerItem label="Family" href="/family" icon={Pillar}/>
@@ -54,18 +54,18 @@ function Drawer() {
           <li className="hover:bg-[#cacaca33] rounded-md p-3">
             <button className="flex">
               <Create width="30" height="30"/>
-              <span className="m-auto ml-2 text-lg">Create</span>
+              <span className="m-auto ml-2 text-lg hidden lg:block">Create</span>
             </button>
           </li> 
         }
         <li className="hover:bg-[#cacaca33] rounded-md p-3">
           <Link className="flex" href="/profile">
             <Image className="rounded-full" src={data!.user.avatar} width="30" height="30" alt={data!.user.username}/>
-            <span className="m-auto ml-2 text-lg">Profile</span>
+            <span className="m-auto ml-2 text-lg hidden lg:block">Profile</span>
           </Link>
         </li> 
         <li>
-          <Button onClick={handleSignOut}>Signout</Button>
+          {/* <Button onClick={handleSignOut}>Signout</Button> */}
         </li>
       </ul>
     </nav>

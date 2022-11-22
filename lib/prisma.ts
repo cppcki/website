@@ -7,7 +7,8 @@ declare global {
 const Dates = [
   "updateAt",
   "startTime",
-  "endTime"
+  "endTime",
+  "createdAt"
 ];
 
 export default function serialize(payload: any) {

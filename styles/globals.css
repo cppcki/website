@@ -6,11 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  max-width: 1440px;
-  margin: auto;
-}
-
 .font-marker {
   font-family: 'Permanent Marker', cursive;
 }
