@@ -47,7 +47,7 @@ function profile(profile: DiscordProfile) {
     avatar: image_url,
     username: profile.username,
     email: profile.email,
-  }
+  };
 }
 
 const options = {
@@ -80,6 +80,6 @@ const options = {
 
 const authHandler: NextApiHandler = (request, response) => {
   return NextAuth(request, response, options);
-}
+};
 
 export default authHandler;

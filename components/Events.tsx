@@ -1,9 +1,12 @@
 import Image from "next/image";
-import { useCallback, useMemo } from "react";
-import { format }  from "timeago.js";
+import { useCallback, useMemo, useRef } from "react";
+import { format } from "timeago.js";
+import { RouterOutput, trpc } from "@app/utils/trpc";
 
 import Dots from "@app/assets/token/dots.svg";
 import Button from "@app/components/Button";
+import { useMutation } from "@tanstack/react-query";
+import { forwardRef } from "react";
 
 type User = {
   username: string
@@ -11,28 +14,33 @@ type User = {
 }
 
 type EventProps = {
-  eventId: string
-  title: string
-  description: string
-  thumbnail: string
-  published: boolean
-  tenants: string[]
-  level: string
-  startTime: string
-  endTime: string
-  updatedAt: string
-  createdAt: string
-  createdBy: User
-  location: string
+  eventId: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  published: boolean;
+  tenants: string[];
+  level: string;
+  startTime: string;
+  endTime: string;
+  updatedAt: string;
+  createdAt: string;
+  createdBy: User;
+  location: string;
 }
 
-type EventsProps = {
-  events: EventProps[],
-}
-
-function Event(props: EventProps) {
-
-  const { title, description, thumbnail, createdBy, createdAt, tenants } = props;
+const Event = forwardRef((props: EventProps, ref) => {
+  const { 
+    title,
+    description,
+    thumbnail,
+    createdBy,
+    createdAt,
+    tenants,
+    startTime,
+    endTime,
+    location
+  } = props;
 
   const tenantList = useMemo(() => {
     return tenants?.map((tenant: string) => {
@@ -51,20 +59,71 @@ function Event(props: EventProps) {
     return format(time, "en_US");
   }, [createdAt]);
 
+  const payload = async () => {
+    const response = await fetch("/api/events", {
+      method: "PUT",
+    });
+  };
+
+  const mutation = useMutation({
+    mutationFn: payload
+  });
+
   const handleOnRSVP = useCallback(() => {
     console.log("hi");
   }, []);
 
   const timeLabel = useMemo(() => {
-    return (
-      <div>
-        time
-      </div>
-    );
-  }, []);
+    const start = new Date(startTime);
+    const end = new Date(endTime);
+
+    const isSameDay = start.getDate() === end.getDate() 
+      && start.getMonth() === end.getMonth() 
+      && start.getFullYear() === end.getFullYear();
+
+    if (isSameDay) {
+
+      const day = start.toLocaleString("en-US", {
+        timeZone: "America/Los_Angeles",
+        weekday: "long",
+        month: "long",
+        day: "2-digit"
+      });
+
+      const startingTime = start.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+      });
+
+      const endingTime = end.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "numeric"
+      });
+
+      return (
+        <span>
+          {day} @ {startingTime} - {endingTime}
+        </span>
+      );
+    } else {
+
+      const startingDay = start.toLocaleString("en-US", {
+        timeZone: "America/Los_Angeles",
+        weekday: "long",
+        month: "long",
+        day: "2-digit",
+      });
+
+      return (
+        <div>
+          {startingDay}
+        </div>
+      );
+    }
+  }, [startTime, endTime]);
 
   return (
-    <div className="sm:w-[500px] border border-gray rounded-lg mx-auto">
+    <div ref={ref} className="sm:w-[500px] border border-gray rounded-lg mx-auto">
       <div className="flex p-3 justify-between">
         <div className="flex">
           <Image className="w-8 h-8 rounded-full object-cover" src={createdBy.avatar} width="100" height="100" alt={title}/>
@@ -79,8 +138,9 @@ function Event(props: EventProps) {
         <div className="flex my-1 gap-x-2">
           {tenantList}
         </div>
+        <h3>{location}</h3>
         <h1 className="text-xl font-bold">{title}</h1>
-        <h2>{}</h2>
+        <h2>{timeLabel}</h2>
         <p>{description}</p>
         <div className="flex py-2">
           <Button className="mt-4 w-full" onClick={handleOnRSVP}>RVSP</Button>
@@ -91,20 +151,65 @@ function Event(props: EventProps) {
       </div>
     </div>
   );
-}
+});
 
-function Events(props: EventsProps) {
-  const { events: data } = props;
+Event.displayName = "Event";
 
-  console.log("@events", data);
+function Events() {
+
+  const observer = useRef<IntersectionObserver>(null);
+  
+  const queryInput = {
+    limit: 10
+  };
+
+  const eventsQuery = trpc.events.list.useInfiniteQuery(queryInput, {
+    getNextPageParam: (lastPage) => lastPage.nextCursor
+  });
+
+  const lastItemRef = useCallback(element => {
+    if (eventsQuery.isLoading) return;
+
+    if (observer.current) {
+      observer.current.disconnect();
+    }
+
+    observer.current = new IntersectionObserver(async (entries) => {
+      if (entries[0].isIntersecting && eventsQuery.hasNextPage) {
+        await eventsQuery.fetchNextPage();
+      }
+    });
+
+    if (element) {
+      observer.current.observe(element);
+    }
+
+  }, [eventsQuery.isLoading]);
 
   const events = useMemo(() => {
-    return data?.map((event: EventProps, index: number) => {
+    const pages = eventsQuery.data?.pages;
+    if (!pages) return null;
+
+    const items = [];
+
+    for (const page of pages) {
+      const { events } = page;
+      items.push(...events);
+    }
+
+    return items.map((item: any, index: number) => {
+      const itemId = item.eventId;
+      if (items.length === index + 1) {
+        return (
+          <Event ref={lastItemRef} key={itemId} {...item}/>
+        );
+      }
+
       return (
-        <Event key={index} {...event}/>
+        <Event key={itemId} {...item}/>
       );
     });
-  }, [data]);
+  }, [eventsQuery.data?.pages]);
 
   return (
     <div className="flex justify-center gap-y-10 my-10 mx-auto flex-col p-4">

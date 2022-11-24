@@ -1,6 +1,11 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "jsx-quotes": [2, "prefer-double"]
+    "jsx-quotes": [2, "prefer-double"],
+    "semi": ["error", "always", {
+      "omitLastInOneLineBlock": true
+    }],
+    "indent": ["error", 2],
+    "no-multi-spaces": ["error"]
   }
 }

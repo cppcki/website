@@ -5,6 +5,7 @@ import Navbar from "@app/components/Navbar";
 import Anchor from "@app/components/Anchor";
 
 import { prisma, serialize } from "@app/prisma";
+import { trpc } from "@app/utils/trpc";
 
 function Montage() {
 
@@ -51,6 +52,9 @@ export default function Home(props: any) {
 
   const { events } = props;
 
+  // const hello = trpc.hello.useQuery({ text: "sfsfsfds" });
+  // console.log(hello.data);
+
   return (
     <div className="max-w-[1440px] m-auto">
       <Head>
@@ -79,5 +83,5 @@ export async function getServerSideProps(context: any) {
     props: {
       events: serialize(events)
     }
-  }
+  };
 }

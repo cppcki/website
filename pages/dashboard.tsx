@@ -1,13 +1,19 @@
+import { useState } from "react";
 import Head from "next/head";
-import { signIn, signOut, useSession } from "next-auth/react";
+
 import { prisma, serialize } from "@app/prisma";
 
 import Drawer from "@app/components/Drawer";
 import Events from "@app/components/Events";
+import EventForm from "@app/components/EventForm";
+import Modal from "@app/components/Modal";
+import { trpc } from "@app/utils/trpc";
+import { useMemo } from "react";
+import { useEffect } from "react";
 
-function Dashboard(props: any) {
+function Dashboard() {
 
-  const { events } = props;
+  const [eventFormOpen, setEventFormOpen] = useState(false);
 
   return (
     <div>
@@ -15,37 +21,22 @@ function Dashboard(props: any) {
         <title>Dashboard - Circle K @ CPP</title>
       </Head>
       <main className="md:flex">
-        <Drawer/>
-        <Events events={events}/>
+        <Drawer setEventFormVisibility={setEventFormOpen}/>
+        <Events/>
+        <Modal
+          isOpen={eventFormOpen}
+          onClose={() => setEventFormOpen(false)}>
+          <EventForm/>
+        </Modal>
       </main>
     </div>
   );
-}
-
-export async function getServerSideProps(context: any) {
-
-  const events = await prisma.event.findMany({
-    include: {
-      createdBy: {
-        select: {
-          username: true,
-          avatar: true
-        }
-      }
-    }
-  });
-
-  return {
-    props: {
-      events: serialize(events)
-    }
-  }
 }
 
 Dashboard.auth = {
   role: "member",
   loading: <p>dashboard loading...</p>,
   unauthorized: "/login"
-}
+};
 
 export default Dashboard;

@@ -9,3 +9,8 @@
 .font-marker {
   font-family: 'Permanent Marker', cursive;
 }
+
+.prevent-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
