@@ -24,7 +24,6 @@ export const Title = styled.h2`
 `;
 
 export const Box = styled.div`
-  color: white;
   border-radius: 10px;
   width: 300px;
   height: 200px;
@@ -46,6 +45,7 @@ export const BoxContents = styled.div`
   top: 8px;
   & > p {
     position: absolute;
+    color: white;
     left: 10px;
     font-size: 23px;
     width: 200px;

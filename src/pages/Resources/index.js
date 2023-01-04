@@ -1,5 +1,6 @@
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
+
 import {
   Main,
   Title,
@@ -20,7 +21,7 @@ import facebook from "../../assets/resources/fb-logo.jpg";
 import cki from "../../assets/resources/CKI_logo.jpg";
 
 //desired plan.
-//Make boxes pop out and remove visit button
+//Make boxes pop out and remove visit button or simply just make the buttons clickable
 
 export function Resources() {
   return (
