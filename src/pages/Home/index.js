@@ -6,6 +6,7 @@ import Footer from "components/Footer";
 import Navbar from "components/Navbar";
 import Events from "components/Events";
 import Tenants from "components/Tenants";
+import Event from "components/Event";
 
 import Montage from "../../assets/media/montage.mp4";
 import {

@@ -261,6 +261,7 @@ export const RSVPButton = styled.button`
   display: block;
   bottom: 15%;
   left: 60%;
+  cursor: pointer;
   @media (max-width: ${MOBILE_THRESHOLD}px) {
     width: 45%;
     transform: translate(-8rem, 18rem);
