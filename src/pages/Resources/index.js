@@ -1,15 +1,8 @@
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
+import Card from "components/Card";
 
-import {
-  Main,
-  Title,
-  Box,
-  BoxContents,
-  Container,
-  BoxButton,
-  ResourceImg,
-} from "./styles";
+import { Main, Title, Container } from "./styles";
 
 import PCC from "../../assets/resources/PasadenaCityCollege.png";
 import LACC from "../../assets/resources/LACC.jpg";
@@ -30,113 +23,49 @@ export function Resources() {
       <Main>
         <Title>Foothill Division</Title>
         <Container>
-          <Box>
-            <ResourceImg src={PCC} alt="its CC" />
-            <BoxContents>
-              <p>Pasadena City College</p>
-              <a
-                href="https://www.instagram.com/ckipcc/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
-          <Box>
-            <ResourceImg src={LACC} alt="its LCC" />
-            <BoxContents>
-              <p>Los Angeles City College</p>
-              <a
-                href="https://www.instagram.com/lacccki/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
-          <Box>
-            <ResourceImg src={ClaremontCollege} alt="its CC" />
-            <BoxContents>
-              <p>Claremont Colleges</p>
-              <a
-                href="http://claremontcki.weebly.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
-          <Box>
-            <ResourceImg src={CSULA} alt="its CSULA" />
-            <BoxContents>
-              <p>California State University Los Angeles</p>
-              <a
-                href="https://www.instagram.com/cki_csula"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
-          <Box>
-            <ResourceImg src={MtSAC} alt="its MtSAC" />
-            <BoxContents>
-              <p>Mount San Antonio College</p>
-              <a
-                href="https://www.instagram.com/mtsaccki/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
-          <Box>
-            <ResourceImg src={ELAC} alt="its ELAC" />
-            <BoxContents>
-              <p>East Los Angeles College</p>
-              <a
-                href="https://www.instagram.com/elac_cki"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
+          <Card
+            src={PCC}
+            title="Pasadena City College"
+            school="https://www.instagram.com/ckipcc/"
+          />
+          <Card
+            src={LACC}
+            title="Los Angeles City College"
+            school="https://www.instagram.com/lacccki/"
+          />
+          <Card
+            src={ClaremontCollege}
+            title="Claremont College"
+            school="http://claremontcki.weebly.com/"
+          />
+          <Card
+            src={CSULA}
+            title="California State University Los Angeles"
+            school="https://www.instagram.com/cki_csula"
+          />
+          <Card
+            src={MtSAC}
+            title="Mount San Antonio College"
+            school="https://www.instagram.com/mtsaccki/"
+          />
+          <Card
+            src={ELAC}
+            title="East Los Angeles College"
+            school="https://www.instagram.com/elac_cki"
+          />
         </Container>
         <Title>District Information</Title>
         <Container>
-          <Box>
-            <ResourceImg src={cki} alt="cki" />
-            <BoxContents>
-              <p>Circle K International Website</p>
-              <a
-                href="http://www.cnhcirclek.org"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
-          <Box>
-            <ResourceImg src={facebook} alt="its facebook" />
-            <BoxContents>
-              <p>Circle K International Facebook</p>
-              <a
-                href="https://www.facebook.com/cnhcirclek"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BoxButton>Visit</BoxButton>
-              </a>
-            </BoxContents>
-          </Box>
+          <Card
+            src={cki}
+            title="Circle K International Website"
+            school="http://www.cnhcirclek.org"
+          />
+          <Card
+            src={facebook}
+            title="Circle K International Facebook"
+            school="https://www.facebook.com/cnhcirclek"
+          />
         </Container>
         <Footer />
       </Main>
