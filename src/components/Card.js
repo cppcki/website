@@ -54,9 +54,8 @@ const School = styled.img`
   height: 200px;
   border-radius: 10px;
   filter: brightness(50%);
-  border: 2px solid ${(p) => p.theme.hue.gold};
-  background-size: contain;
   background-image: url(${(props) => props.src});
+  border: 3px solid ${(p) => p.theme.hue.gold};
 `;
 
 const BoxButton = styled.button`
