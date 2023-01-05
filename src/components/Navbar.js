@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Header } from "components";
+import Header from "components/Header";
 
 import { ReactComponent as HamburgerIcon } from "../assets/images/hamburger.svg";
 
@@ -10,14 +10,14 @@ const MOBILE_THRESHOLD = 530;
 
 const disableScroll = () => {
   window.scrollTo(0, 0);
-}
+};
 
-export function Navbar(props) {
+export default function Navbar(props) {
   const { color, containerRef, position } = props;
 
   const [windowDimension, setWindowDimension] = useState({
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   });
 
   const [showHamburger, setShowHamburger] = useState(false);
@@ -28,16 +28,16 @@ export function Navbar(props) {
       const { innerWidth: width, innerHeight: height } = window;
       setWindowDimension({
         width,
-        height
+        height,
       });
-    }
+    };
 
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
       // Prevent memeory leaks; all event listeners need to be remove if they aren't being used anymore.
       window.removeEventListener("resize", handleWindowResize);
-    }
+    };
   }, []);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export function Navbar(props) {
     return () => {
       window.removeEventListener("scroll", disableScroll);
       window.document.body.style.overflow = "";
-    }
+    };
   }, [windowDimension, containerRef]);
 
   const handleOnHamburgerToggle = useCallback(() => {
@@ -79,9 +79,12 @@ export function Navbar(props) {
     const { visible } = props;
     return (
       <>
-        <Header/>
-        <HamburgerButton onClick={handleOnHamburgerToggle} visible={showHamburger}>
-          <StyledHamburgerIcon fill={color}/>
+        <Header />
+        <HamburgerButton
+          onClick={handleOnHamburgerToggle}
+          visible={showHamburger}
+        >
+          <StyledHamburgerIcon fill={color} />
         </HamburgerButton>
         <Content isNavbarOpen={visible} isMobile={showHamburger} color={color}>
           <li>
@@ -102,7 +105,7 @@ export function Navbar(props) {
     if (navbarOpen && position !== "absolute") {
       return (
         <OverlayContainer>
-          <NavbarContent visible/>
+          <NavbarContent visible />
         </OverlayContainer>
       );
     }
@@ -112,16 +115,14 @@ export function Navbar(props) {
   return (
     <Wrapper>
       <Container position={position}>
-        <NavbarContent visible={navbarOpen && position === "absolute"}/>
+        <NavbarContent visible={navbarOpen && position === "absolute"} />
       </Container>
       {navbarOverlay}
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
-
-`;
+const Wrapper = styled.div``;
 
 const BaseContainer = styled.div`
   display: flex;
@@ -136,13 +137,13 @@ const BaseContainer = styled.div`
 const OverlayContainer = styled(BaseContainer)`
   background-color: white;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid ${p => p.theme.hue.gray};
+  border-bottom: 1px solid ${(p) => p.theme.hue.gray};
   position: absolute;
   top: 0;
 `;
 
 const Container = styled(BaseContainer)`
-  position: ${p => p.position ? p.position : ""};
+  position: ${(p) => (p.position ? p.position : "")};
 `;
 
 const navbarListingColors = (props) => {
@@ -156,7 +157,7 @@ const navbarListingColors = (props) => {
   } else {
     return theme.hue.black;
   }
-}
+};
 
 const Content = styled.ul`
   display: flex;
@@ -168,35 +169,35 @@ const Content = styled.ul`
     margin-right: 10px;
     margin-top: 10px;
     & > a {
-      color: ${p => navbarListingColors(p)};
-      font-size: ${p => p.isMobile ? "25px" : "inital" };
+      color: ${(p) => navbarListingColors(p)};
+      font-size: ${(p) => (p.isMobile ? "25px" : "inital")};
       font-weight: bold;
       text-decoration: none;
       text-transform: lowercase;
       text-align: center;
     }
     & > a:hover {
-      color: ${props => props.theme.hue.gold};
+      color: ${(props) => props.theme.hue.gold};
     }
   }
 
   @media (max-width: ${MOBILE_THRESHOLD}px) {
-    display: ${p => p.isNavbarOpen ? "block" : "none" };
+    display: ${(p) => (p.isNavbarOpen ? "block" : "none")};
     width: 100%;
   }
 `;
 
 const StyledHamburgerIcon = styled(HamburgerIcon)`
-  fill: ${p => p?.fill};
+  fill: ${(p) => p?.fill};
   transition: fill 0.5s;
 
   &:hover {
-    fill: ${props => props.theme.hue.blue};
+    fill: ${(props) => props.theme.hue.blue};
   }
 `;
 
 const HamburgerButton = styled.button`
-  display: ${p => p.visible ? "block" : "none"};
+  display: ${(p) => (p.visible ? "block" : "none")};
   background-color: transparent;
   border: none;
 `;

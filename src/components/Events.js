@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { CKI_API } from "utils/axios";
 
-import { Event } from "components";
+import Event from "components/Event";
 
-export function Events() {
+export default function Events() {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = useCallback(async () => {

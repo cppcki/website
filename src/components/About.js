@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Banquet from "../assets/images/banquet_brush.png";
 
-export function About() {
+export default function About() {
   return (
     <Container>
       <Flex>
@@ -12,15 +12,16 @@ export function About() {
         <Row>
           <Content>
             <p>
-              Circle K blends community service and leadership training with the opportunity to meet
-              many other college students at service projects, conferences, and conventions and form
-              genuine lifelong friendships with people of all walks of life. 
+              Circle K blends community service and leadership training with the
+              opportunity to meet many other college students at service
+              projects, conferences, and conventions and form genuine lifelong
+              friendships with people of all walks of life.
             </p>
             <p>
-              It is a self-governing
-              organization and elects its own officers, conducts its own meetings, and determines its 
-              own service activities. This high degree of autonomy allows for a unique service experience
-              driven entirely by the members for the members. 
+              It is a self-governing organization and elects its own officers,
+              conducts its own meetings, and determines its own service
+              activities. This high degree of autonomy allows for a unique
+              service experience driven entirely by the members for the members.
             </p>
           </Content>
           <Left>
@@ -71,15 +72,15 @@ const Left = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
   font-size: 4rem;
 `;
 
-const Image = styled.img.attrs(props => ({
-  as: !props.src && "div"
+const Image = styled.img.attrs((props) => ({
+  as: !props.src && "div",
 }))`
   max-width: 500px;
-  height: ${p => p.height}px;
+  height: ${(p) => p.height}px;
   background: transparent;
-  transform: translate(${p => p.x || 0}, ${p => p.y || 0});
+  transform: translate(${(p) => p.x || 0}, ${(p) => p.y || 0});
 `;
