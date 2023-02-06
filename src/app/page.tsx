@@ -15,8 +15,8 @@ function Hero() {
   return (
     <div className="mt-10 flex justify-center flex-col">
       <div className="my-6">
-        <h3 className="text-center text-6xl font-black capitalize">we love service</h3>
-        <h1 className="text-center text-8xl font-black capitalize">so matcha! 🍵</h1>
+        <h3 className="text-center lg:text-6xl md:text-5xl text-5xl font-black capitalize">we love service</h3>
+        <h1 className="text-center lg:text-8xl md:text-7xl text-5xl font-black capitalize">so matcha! 🍵</h1>
       </div>
       <p className="text-xl max-w-2xl text-center mx-auto">
         Become part of one of the largest collegiate community service, leadership development, and friendship organization in the world.

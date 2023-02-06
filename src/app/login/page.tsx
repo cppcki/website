@@ -1,7 +1,6 @@
 "use client"
 
 import { SyntheticEvent, useCallback, useState } from "react";
-import { useRouter } from 'next/navigation';
 
 import TextInput from "@/components/TextLabel";
 import Button from "@/components/Button";
@@ -15,8 +14,6 @@ type LoginInput = {
 }
 
 function Login() {
-  const router = useRouter();
-
   const canvasRef = useParticles(10, {
     tokens: ["🍡", "🍲", "🥟", "🍤", "🍣", "🍜", "🍛", "🍘", "🍙", "🍥"],
     size: 300,
