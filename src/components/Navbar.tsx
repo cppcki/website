@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Button from "@/components/Button";
 
 type NavbarProps = {
-  isLoggedIn: boolean;
+  isLoggedIn?: boolean;
 }
 
 function Navbar(props: NavbarProps) {
