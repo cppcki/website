@@ -21,8 +21,8 @@ function Navbar(props: NavbarProps) {
         </li>        
         <li>
           {isLoggedIn ? 
-            <Button variant="outline" href="/login">login</Button> :
-            <Button variant="outline" href="/dashboard">portal</Button> 
+            <Button variant="outline" href="/dashboard">portal</Button> :
+            <Button variant="outline" href="/login">login</Button> 
           }
         </li>        
       </ul>
