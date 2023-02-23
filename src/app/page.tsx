@@ -15,7 +15,7 @@ function Hero() {
   return (
     <div className="mt-10 flex justify-center flex-col">
       <div className="my-6">
-        <h3 className="text-center lg:text-6xl md:text-5xl text-5xl font-black capitalize">we love service</h3>
+        <h3 className="text-center lg:text-6xl md:text-5xl text-4xl font-black capitalize">we love service</h3>
         <h1 className="text-center lg:text-8xl md:text-7xl text-5xl font-black capitalize">so matcha! 🍵</h1>
       </div>
       <p className="text-xl max-w-2xl text-center mx-auto">
