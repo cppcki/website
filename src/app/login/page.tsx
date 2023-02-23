@@ -1,6 +1,7 @@
 "use client"
 
 import { SyntheticEvent, useCallback, useState } from "react";
+import { signIn } from "next-auth/react";
 
 import TextInput from "@/components/TextLabel";
 import Button from "@/components/Button";
@@ -38,7 +39,9 @@ function Login() {
   }, [input]);
 
   const handleDiscordAuth = useCallback(async () => {
-    
+    signIn("discord", {
+      callbackUrl: "/dashboard"
+    });
   }, []);
 
   return (

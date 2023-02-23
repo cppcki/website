@@ -2,7 +2,13 @@
 import Header from "@/components/Header";
 import Button from "@/components/Button";
 
-function Navbar() {
+type NavbarProps = {
+  isLoggedIn: boolean;
+}
+
+function Navbar(props: NavbarProps) {
+  const { isLoggedIn } = props;
+
   return (
     <nav className="sm:flex justify-between py-8">
       <Header/>
@@ -14,7 +20,10 @@ function Navbar() {
           <Button href="/events">events</Button> 
         </li>        
         <li>
-          <Button variant="outline" href="/login">login</Button> 
+          {isLoggedIn ? 
+            <Button variant="outline" href="/login">login</Button> :
+            <Button variant="outline" href="/dashboard">portal</Button> 
+          }
         </li>        
       </ul>
     </nav>
