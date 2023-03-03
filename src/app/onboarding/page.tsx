@@ -17,7 +17,7 @@ async function fetchMajors() {
     majors.add(major);
   }
 
-  majors.add("Undecided");
+  majors.add("Undeclared");
   majors.add("Other");
 
   return Array.from(majors);

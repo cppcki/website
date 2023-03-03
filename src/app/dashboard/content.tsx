@@ -29,9 +29,7 @@ function Content(props: ContentProps) {
   }
 
   return (
-    <div>
-      <h1>hi {user.name}</h1>
-      <p>{user.email}</p>
+    <div className="flex flex-col justify-center w-80">
       <Image
         className="rounded-full"
         src={user.image}
@@ -39,6 +37,8 @@ function Content(props: ContentProps) {
         width={100}
         height={100}
       />
+      <h1>hi {user.name}</h1>
+      <p>{user.email}</p>
       <Button variant="outline" onClick={handleOnSignOut}>sign out</Button>
     </div>
   );

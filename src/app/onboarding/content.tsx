@@ -1,23 +1,39 @@
 "use client";
 
-import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
+
+import { useNeighbor, Neighbor } from "@/utils/hooks/useNeighbor";
 
 import TextInput from "@/components/TextLabel";
 import OptionInput from "@/components/OptionInput";
 import Button from "@/components/Button";
 
+import { HiArrowLeft } from "react-icons/hi";
+
 type Form = {
   firstName: string;
   lastName: string;
   major: string;
+  email: string;
+  edu: string;
+  phone: string;
   discord: string;
   dob: string;
+  address?: string;
+  apt?: string;
+  city?: string;
+  zipcode?: number;
 }
 
 type FormContext = {
   payload: Form;
   handleOnChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
-  setSection: React.Dispatch<React.SetStateAction<Section>>;
 }
 
 const FormContext = createContext<FormContext | null>(null);
@@ -31,21 +47,55 @@ function useFormContext() {
   return context;
 }
 
-function BasicInformationForm(props: { majors: string[] }) {
-  const { majors } = props;
+type ScreenProps = {
+  header: string;
+  description: string;
+  back?: boolean;
+  children?: React.ReactNode;
+}
 
-  const { payload, handleOnChange, setSection } = useFormContext();
+function Screen(props: ScreenProps) {
+  const { header, description, back, children } = props;
+  const neighbor = useNeighbor();
 
-  const handleOnSubmit = useCallback((event: React.SyntheticEvent<HTMLButtonElement>) => {
-    setSection("address");
-  }, []);
+  const handleOnBack = useCallback(() => {
+    neighbor.previous();
+  }, [neighbor]);
+
+  const handleOnNext = useCallback(() => {
+    if (neighbor.isLastIndex()) {
+      alert("done");
+    } else {
+      neighbor.next();
+    }
+  }, [neighbor]);
 
   return (
-    <>
-      <div className="flex flex-col mt-3">
-        <h1 className="text-2xl font-semibold">A wild Dango appears! 👀</h1>
-        <p>Before we direct you to the dashboard. Please tell us little about yourself.</p>
+    <div className="flex flex-col">
+      {back &&
+        <Button onClick={handleOnBack}>
+          <HiArrowLeft/>
+        </Button>
+      }
+      <div className="flex flex-col my-3">
+        <h1 className="text-2xl font-semibold">{header}</h1>
+        <p>{description}</p>
       </div>
+      {children}
+      <Button className="mt-6" variant="fill" onClick={handleOnNext}>
+        {neighbor.isLastIndex() ? "Submit" : "Continue"}
+      </Button>
+    </div>
+  );
+}
+
+function BasicInformationForm() {
+  const { payload, handleOnChange } = useFormContext();
+
+  return (
+    <Screen
+      header="A wild Dango appears! 👀"
+      description="Please tell us little about yourself.">
       <div className="flex flex-col gap-y-3">
         <TextInput
           required
@@ -65,6 +115,104 @@ function BasicInformationForm(props: { majors: string[] }) {
           name="lastName"
           onChange={handleOnChange}
         />
+        <TextInput
+          required
+          type="date"
+          name="dob"
+          value={payload.dob}
+          onChange={handleOnChange}
+          label="Day of birth"
+        />
+        <TextInput
+          required
+          disabled
+          type="text"
+          readOnly
+          value={payload.email}
+          label="Email"
+          placeholder="ljohnson@cpp.edu"
+          name="email"
+          onChange={handleOnChange}
+        />
+      </div>
+    </Screen>
+  );
+}
+
+function AddressForm() {
+  const { payload } = useFormContext();
+
+  return (
+    <Screen 
+      back
+      header="Where does this wild Dango reside? 🤭"
+      description="Although it is not required, filling out your current address will allow us better plan carpooling whenever needed.">
+      <div className="flex flex-col gap-y-3">
+        <TextInput
+          type="text"
+          value={payload.address}
+          label="Address"
+          name="address"
+          placeholder="42069 Ligma St."
+        />
+        <TextInput
+          type="text"
+          value={payload.apt}
+          label="Apt, suite, etc."
+          name="apt"
+          placeholder="RM 69"
+        />
+        <TextInput
+          type="text"
+          value={payload.city}
+          label="City"
+          name="city"
+          placeholder="Johnson"
+        />
+        <TextInput
+          type="number"
+          value={payload.zipcode}
+          label="Zip code"
+          name="zipcode"
+          placeholder="Johnson"
+        />
+      </div>
+    </Screen>
+  );
+}
+
+type MoreInformationFormProps = {
+  majors: string[]
+}
+
+function MoreInformationForm(props: MoreInformationFormProps) {
+  const { majors } = props;
+
+  const { payload, handleOnChange } = useFormContext();
+
+  return (
+    <Screen 
+      header="Please enlighten us.. 🤓"
+      description="Provide additional information allows to have a better understand of your background."
+      back>
+      <div className="flex flex-col gap-y-3">
+        <TextInput
+          required
+          name="edu"
+          value={payload.edu}
+          type="email"
+          placeholder="ljohnson@cpp.edu"
+          label="School Email"
+          onChange={handleOnChange}
+        />
+        <TextInput
+          name="phone"
+          value={payload.phone}
+          type="text"
+          placeholder="626-420-6969"
+          label="Phone"
+          onChange={handleOnChange}
+        />
         <OptionInput
           required
           label="Major"
@@ -79,61 +227,23 @@ function BasicInformationForm(props: { majors: string[] }) {
           name="discord"
           value={payload.discord}
           type="text"
-          placeholder="rin#8189"
+          placeholder="dani#6969"
           label="Discord"
         />
-        <TextInput
-          required
-          type="date"
-          name="dob"
-          value={payload.dob}
-          onChange={handleOnChange}
-          label="Day of birth"
-        />
-        <Button className="mt-3" variant="fill" onClick={handleOnSubmit}>Continue</Button>
       </div>
-    </>
-  );
-}
-
-function AddressForm() {
-
-  const { payload, setSection } = useFormContext();
-
-  const handleOnSubmit = useCallback((event: React.SyntheticEvent<HTMLButtonElement>) => {
-    setSection("done");
-  }, []);
-
-  return (
-    <>
-      <div className="flex flex-col mt-3">
-        <h1 className="text-2xl font-semibold">A wild Dango appears! 👀</h1>
-        <p>Although it is not required, filling out your current address will allow us better plan carpooling whenever needed.</p>
-      </div>
-      <div className="flex flex-col gap-y-3">
-        <TextInput
-          required
-          type="text"
-          value={payload.firstName}
-          label="First name"
-          name="firstName"
-          placeholder="Ligma"
-        />
-        <Button className="mt-3" variant="fill" onClick={handleOnSubmit}>Continue</Button>
-      </div>
-    </>
+    </Screen>
   );
 }
 
 function CompleteForm() {
   return (
-    <>
+    <Screen back
+      header="Welcome to the circle! 🥳"
+      description="yus">
       <h1>oh hi there</h1>
-    </>
-  )
+    </Screen>
+  );
 }
-
-type Section = "basic" | "address" | "done";
 
 type ContentProps = {
   majors: string[]
@@ -142,12 +252,14 @@ type ContentProps = {
 function OnboardingScreen(props: ContentProps) {
   const { majors } = props;
 
-  const [section, setSection] = useState<Section>("basic");
   const [form, setForm] = useState<Form>({
     firstName: "",
     lastName: "",
     major: "",
+    email: "",
+    edu: "",
     discord: "",
+    phone: "",
     dob: ""
   });
 
@@ -156,36 +268,27 @@ function OnboardingScreen(props: ContentProps) {
     setForm({
       ...form,
       [target.name]: target.value
-    })
+    });
   }, [form]);
 
   const value = useMemo(() => {
     return {
       payload: form,
       handleOnChange,
-      setSection
     }
   }, [form, handleOnChange]);
 
-  const sections = useMemo(() => {
-    switch(section) {
-    case "basic":
-      return <BasicInformationForm majors={majors}/>
-    case "address":
-      return <AddressForm/>
-    case "done":
-      return <CompleteForm/>
-    default:
-      throw new Error("Failed to find section component");
-    }
-  }, [section, majors]);
-
   return (
     <FormContext.Provider value={value}>
-      <main className="max-w-7xl m-auto px-8 h-screen">
-        <div className="flex justify-center h-full">
-          <div className="max-w-md gap-3 flex flex-col m-auto p-4 bg-gray-50 rounded-md">
-            {sections}
+      <main className="max-w-7xl m-auto mt-5 px-8 h-screen">
+        <div className="m-auto justify-center h-full">
+          <div className="max-w-md gap-3 flex flex-col m-auto p-4 rounded-md">
+            <Neighbor components={[
+              <BasicInformationForm key="basic" />,
+              <MoreInformationForm key="more" majors={majors}/>,
+              <AddressForm key="address"/>,
+              <CompleteForm key="complete"/>
+            ]}/>
           </div>
         </div>
       </main>

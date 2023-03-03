@@ -23,7 +23,7 @@ type Variant = "outline" | "fill" | "none";
 const variants: Record<Variant, string> = {
   outline: "border-2 border-gray-900 text-blue rounded-md hover:bg-gray-900 hover:text-white p-2 px-5",
   fill: "bg-gray-800 border-gray-800 text-white p-2 rounded-md hover:bg-gray-900 hover:bg-white border-2 hover:border-gray-800 hover:text-black p-2 px-5",
-  none: ""
+  none: "",
 };
 
 function Button(props: ButtonProps) {
