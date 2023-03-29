@@ -1,7 +1,7 @@
 function Page() {
   return (
     <div>
-      event deez nuts
+      
     </div>
   );
 }

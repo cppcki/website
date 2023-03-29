@@ -2,6 +2,7 @@
 
 import type * as CSS from "csstype";
 import Image, { StaticImageData } from "next/image";
+import DateImage from "@/assets/images/Date.png";
 
 type EventCardProps = {
     title: string;
@@ -13,23 +14,19 @@ type EventCardProps = {
     location: string;
 }
 
-
 function EventCard(props: EventCardProps) {
-    const { title, details, thumbnail, tags, date, time, location} = props;
+    const { title, details, thumbnail, date, time, location,} = props;
 
     return (
         <div style={Container}>
             <Image style={testImage}
                 src={thumbnail}
-                alt="boi i wish"
-                width={250}
-                height={300} 
+                alt="Alt image"
             />
             <div style={Content}>
-                <p>{tags}</p>
-                <p>{date} {time}</p>
+                <div style={CardDate}>📅 {date} @ {time}</div>
                 <h2 style={CardTitle}>{title}</h2>
-                <p>{location}</p>
+                <p style={CardLocation}>{location}</p>
                 <p style={CardDetail}>{details}</p>
             </div>
         </div>
@@ -39,80 +36,92 @@ function EventCard(props: EventCardProps) {
 export default EventCard;
 
 const Container: CSS.Properties = {
-    flexWrap: 'wrap',
+    flexDirection: "column",
     display: 'flex',
-    border: 'solid 1px gray',
+    border: 'solid 1px #ECECEC',
     borderRadius: '10px',
-    width: '300px'
+    width: '300px',
+    minWidth: "300px",
+    minHeight: '450px',
+    backgroundColor: "#FDFDFD",
+    textAlign: "left",
+    padding: 0,
+    margin: 0,
+    mixBlendMode: "normal"
 };
 
 const Content: CSS.Properties = {
     width: '100%',
-    padding: '10px'
+    padding: '10px',
 };
 
 const CardDetail: CSS.Properties = {
     marginBlockEnd: '10px',
     marginBlockStart: '10px',
-    textTransform: "capitalize"
+    fontSize: "14px",
+    textTransform: "capitalize",
+    fontWeight: 500,
 };
 
 const CardTitle: CSS.Properties = {
     textTransform: "capitalize",
-    color: 'blue',
+    color: '#004B85',
+    fontSize: "24px", 
+    fontWeight: 'bold',
     marginBlockEnd: '10px',
-    marginBlockStart: '10px'
+    marginBlockStart: '10px',
+    lineHeight: '25px',
 };
 
 const testImage: CSS.Properties = {
     overflow: 'hidden',
     borderTopLeftRadius: '10px',
     borderTopRightRadius: '10px',
-    height: '300px',
+    height: "300px",
+    minHeight: "300px",
     width: '300px'
 };
 
+const CardDate: CSS.Properties = {
+  color: "#333333",
+  textTransform: "capitalize",
+  marginBlockStart: "10px",
+  marginBlockEnd: "10px",
+  fontSize: "13px",
+  lineHeight: "0px",
+  fontWeight: 500,
+}
 
-/*
-const eventsData = [
-    {
-      name: 'Event 1',
-      date: '2023-04-15',
-      location: 'New York',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    },
-    
-    {
-      name: 'Event 2',
-      date: '2023-05-20',
-      location: 'London',
-      description: 'Nulla vestibulum ullamcorper metus, ac consequat tortor consequat sit amet.'
-    },
-    
-    
-    {
-      name: 'Event 3',
-      date: '2023-06-25',
-      location: 'Paris',
-      description: 'Phasellus non nisi non sapien gravida interdum.'
-    }
-  ];
-  
-  function EventsList() {
-    return (
-      <div>
-        {eventsData.map(event => (
-          <EventCard
-            key={event.name}
-            name={event.name}
-            date={event.date}
-            location={event.location}
-            description={event.description}
-          />
-        ))}
-      </div>
-    );
-  }
+const DateIcon: CSS.Properties = {
+  fill: "#333333",
+  width: "12px",
+  marginRight: "5px"
+}
 
-*/
+const TagContainer: CSS.Properties = {
+  display: "flex",
+  marginBottom: "10px",
+  gap: "10px"
+}
+
+const Tag: CSS.Properties = {
+  borderRadius: "5px",
+  backgroundColor: "#004B85",
+  paddingTop: "2px",
+  paddingBottom: "2px",
+  paddingLeft: "5px",
+  paddingRight: "5px",
+  color: "#333333"
+}
+
+const CardLocation: CSS.Properties = {
+  color: "#333333",
+  textTransform: "capitalize",
+  fontSize: "15px",
+  marginBlockStart: "0",
+  marginBlockEnd: "10px",
+  lineHeight: '7px',
+  fontWeight: 500,
+}
+
 
