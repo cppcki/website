@@ -94,10 +94,12 @@ model Recurring{
   eventId Int @id
   days Int
   endsAt DateTime
+  cancel RecurringEventCancel []
 }
 
-// model RecurringEventCancel{
-//   id Recurring @relation(fields: [eventId], references: [])
-//   eventId Int @id
-//   day DateTime
-// }
+ model RecurringEventCancel{
+  id Int @id @default(autoincrement())
+  event Recurring @relation(fields: [canceleventId], references: [eventId])
+  canceleventId Int 
+  day DateTime
+}
