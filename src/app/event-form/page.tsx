@@ -102,7 +102,7 @@ function eventForm() {
       />
 
       <h2>Recurring?</h2>
-      <input className="recurringCheck" name="recurring" value="true" type="checkbox"></input>
+      <input className="recurringCheck" name="recurring"  type="checkbox"></input>
       
       <TextInput
         name="points"
