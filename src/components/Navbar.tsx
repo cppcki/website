@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Button from "@/components/Button";
 
@@ -8,6 +7,7 @@ type NavbarProps = {
 
 function Navbar(props: NavbarProps) {
   const { isLoggedIn } = props;
+  console.log("@isLoggedIn", isLoggedIn);
 
   return (
     <nav className="sm:flex justify-between py-8">

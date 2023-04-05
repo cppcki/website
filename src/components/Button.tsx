@@ -1,6 +1,9 @@
-"use client"
+import React, {
+  useCallback, 
+  useEffect, 
+  useRef 
+} from "react";
 
-import React, { useCallback, useEffect, useRef } from "react";
 import { debounce } from "lodash";
 import Link from "next/link";
 
@@ -34,10 +37,12 @@ function Button(props: ButtonProps) {
     throw new Error("Component props must consume either `onClick` or `href`");
   }
 
-  const handleDebounce = useRef(debounce((event: React.SyntheticEvent<HTMLButtonElement>) => {
-    if (!onClick) return;
-    onClick(event);
-  }, 500, debounceConfig)).current;
+  const handleDebounce = useRef(
+    debounce((event: React.SyntheticEvent<HTMLButtonElement>) => {
+      if (!onClick) return;
+      onClick(event);
+    }, 500, debounceConfig)
+  ).current;
 
   const handleOnClick = useCallback((event: React.SyntheticEvent<HTMLButtonElement>) => {
     if (disableDebounce) {

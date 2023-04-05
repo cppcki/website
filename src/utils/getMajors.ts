@@ -1,8 +1,6 @@
 import * as cheerio from "cheerio";
 
-import OnboardingScreen from "./content";
-
-async function fetchMajors() {
+async function getMajors() {
   const response = await fetch("https://catalog.cpp.edu/content.php?catoid=61&navoid=4876");
   const document = await response.text();
   const $ = cheerio.load(document);
@@ -23,12 +21,4 @@ async function fetchMajors() {
   return Array.from(majors);
 }
 
-async function Page() {
-  const majors = await fetchMajors();
-
-  return (
-    <OnboardingScreen majors={majors}/>
-  );
-}
-
-export default Page;
+export default getMajors;

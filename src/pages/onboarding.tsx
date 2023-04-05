@@ -1,5 +1,3 @@
-"use client";
-
 import React, {
   createContext,
   useCallback,
@@ -7,14 +5,16 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { HiArrowLeft } from "react-icons/hi";
 
 import { useNeighbor, Neighbor } from "@/utils/hooks/useNeighbor";
 
+import Head from "@/components/Head";
 import TextInput from "@/components/TextLabel";
 import OptionInput from "@/components/OptionInput";
 import Button from "@/components/Button";
 
-import { HiArrowLeft } from "react-icons/hi";
+import getMajors from "@/utils/getMajors";
 
 type Form = {
   firstName: string;
@@ -245,11 +245,11 @@ function CompleteForm() {
   );
 }
 
-type ContentProps = {
+type OnboardingProps = {
   majors: string[]
 }
 
-function OnboardingScreen(props: ContentProps) {
+function Onboarding(props: OnboardingProps) {
   const { majors } = props;
 
   const [form, setForm] = useState<Form>({
@@ -279,21 +279,36 @@ function OnboardingScreen(props: ContentProps) {
   }, [form, handleOnChange]);
 
   return (
-    <FormContext.Provider value={value}>
-      <main className="max-w-7xl m-auto mt-5 px-8 h-screen">
-        <div className="m-auto justify-center h-full">
-          <div className="max-w-md gap-3 flex flex-col m-auto p-4 rounded-md">
-            <Neighbor components={[
-              <BasicInformationForm key="basic" />,
-              <MoreInformationForm key="more" majors={majors}/>,
-              <AddressForm key="address"/>,
-              <CompleteForm key="complete"/>
-            ]}/>
-          </div>
-        </div>
+    <>
+      <Head title="Onboarding"/>
+      <main>
+        <FormContext.Provider value={value}>
+          <main className="max-w-7xl m-auto mt-5 px-8 h-screen">
+            <div className="m-auto justify-center h-full">
+              <div className="max-w-md gap-3 flex flex-col m-auto p-4 rounded-md">
+                <Neighbor components={[
+                  <BasicInformationForm key="basic" />,
+                  <MoreInformationForm key="more" majors={majors}/>,
+                  <AddressForm key="address"/>,
+                  <CompleteForm key="complete"/>
+                ]}/>
+              </div>
+            </div>
+          </main>
+        </FormContext.Provider>
       </main>
-    </FormContext.Provider>
+    </>
   );
 }
 
-export default OnboardingScreen;
+export async function getServerSideProps() {
+  const majors = await getMajors();
+
+  return {
+    props: {
+      majors
+    }
+  }
+}
+
+export default Onboarding;
