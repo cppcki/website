@@ -40,6 +40,7 @@ function Content(props: ContentProps) {
       <h1>hi {user.name}</h1>
       <p>{user.email}</p>
       <Button variant="outline" onClick={handleOnSignOut}>sign out</Button>
+      <Button variant="outline" href="/event-form">Create event</Button>
     </div>
   );
 }
