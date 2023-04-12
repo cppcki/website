@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Session } from "next-auth";
 
+import Main from "@/components/Main";
 import Navbar from "@/components/Navbar";
 import Button from "@/components/Button";
 
@@ -73,11 +74,11 @@ function Home(props: HomeProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/cki_logo.png" />
       </Head>
-      <div>
+      <Main>
         <Navbar isLoggedIn={session?.user != null}/>
         <Hero/>
         <Tenants/>
-      </div>
+      </Main>
     </>
   );
 }

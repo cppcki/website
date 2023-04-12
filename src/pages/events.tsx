@@ -1,12 +1,15 @@
 import Head from "@/components/Head";
+import Main from "@/components/Main";
 
 function Events() {
   return (
     <>
       <Head title="Events"/>
-      <div>
+      <Main>
         deez nuts events
-      </div>
+      </Main>
     </>
   );
 }
+
+export default Events;

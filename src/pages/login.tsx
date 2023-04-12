@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 import Header from "@/components/Header";
 
 import useParticles from "@/utils/hooks/useParticles";
+import getSession from "@/utils/getServerSession";
 
 type LoginInput = {
   email: string
@@ -85,6 +86,22 @@ function Login() {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  const session = await getSession(context);
+  if (session) {
+    return {
+      redirect: {
+        destination: "/dashboard",
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
 }
 
 export default Login;

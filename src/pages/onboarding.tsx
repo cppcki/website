@@ -78,7 +78,7 @@ function Screen(props: ScreenProps) {
         </Button>
       }
       <div className="flex flex-col my-3">
-        <h1 className="text-2xl font-semibold">{header}</h1>
+        <h1 className="text-4xl font-semibold">{header}</h1>
         <p>{description}</p>
       </div>
       {children}

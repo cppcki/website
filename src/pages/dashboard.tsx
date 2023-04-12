@@ -6,7 +6,9 @@ import Head from "@/components/Head";
 import Button from "@/components/Button";
 
 import getSession from "@/utils/getServerSession";
-import { redirect } from "next/navigation";
+import prisma from "@/server/prisma";
+
+import type { GetServerSidePropsContext } from "next";
 
 type ContentProps = {
   session: Session
@@ -33,7 +35,7 @@ function Dashboard(props: ContentProps) {
   return (
     <>
       <Head title="Dashboard"/>
-      <div className="flex flex-col justify-center w-80">
+      <main className="flex flex-col justify-center w-80">
         <Image
           className="rounded-full"
           src={user.image}
@@ -44,17 +46,50 @@ function Dashboard(props: ContentProps) {
         <p>{user.id}</p>
         <p>{user.email}</p>
         <Button variant="outline" onClick={handleOnSignOut}>sign out</Button>
-      </div>
+      </main>
     </>
   );
 }
 
-export async function getServerSideProps(context: any) {
-  const session = await getSession(context);
-  console.log(session);
+async function isUserOnboarded(id: string) {
 
-  if (!session) {
-    redirect("/");
+  // If user doesn't complete their onboarding, route them to onboarding.
+  const user = await prisma.user.findUnique({
+    where: {
+      id
+    }
+  });
+
+  return user?.firstName !== null 
+    || user.lastName !== null 
+    || user.dob !== null
+    || user.major !== null 
+    || user.edu !== null;
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+
+  // If user isn't logged in, send them to the login page.
+  const user = session?.user;
+  if (!user) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false
+      }
+    }
+  }
+
+  const hasOnboarded = await isUserOnboarded(user.id);
+
+  if (!hasOnboarded) {
+    return {
+      redirect: {
+        destination: "/onboarding",
+        permanent: false
+      }
+    }
   }
 
   return {
