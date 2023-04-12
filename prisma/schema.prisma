@@ -59,6 +59,9 @@ model User {
   major         String?
   phone         String?
   address       String?
+  avatar        String?
+  discriminator String?
+  username      String?
   apt           String?
   city          String?
   zipcode       Int?
