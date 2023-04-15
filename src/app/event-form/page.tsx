@@ -1,11 +1,11 @@
-//copied from about
+
 'use client'
 import TextInput from "@/components/TextLabel";
+import Button from "@/components/Button";
 import React from "react";
 import { SyntheticEvent, useCallback, useState } from "react";
 
-function eventForm() {
-  type eventItem = {
+type eventItem = {
   title: string,
   location: string,
   thumbnail: string,
@@ -16,7 +16,8 @@ function eventForm() {
   recurring: boolean,
   points: number
   };
-
+  
+function eventForm() {
   const [events, setEvent] = React.useState<eventItem>({
     title: "",
     location: "",
@@ -32,14 +33,18 @@ function eventForm() {
   const handleInput = useCallback((event: SyntheticEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     setEvent({
-      ...events,
-      [target.name]: target.value
+      ...events,[target.name]: target.value
     });
+    console.log(events);
   }, [events]);
 
   function handleClick(event: any){
+    // Object.keys(events).forEach(key => {
+    //   console.log(key, events[key]);
+    // })
     console.log(events);
   }
+  
   
   return (
     <div>
@@ -113,7 +118,7 @@ function eventForm() {
         onChange={handleInput}
       />
 
-      <button onClick={handleClick}>Create Event</button>
+      <Button variant="outline" onClick={handleClick}>Create Event</Button>
     </div>
     
   );
