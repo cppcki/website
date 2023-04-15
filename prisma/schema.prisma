@@ -53,13 +53,15 @@ model User {
   firstName     String?
   lastName      String?
   edu           String?   @unique
-  name          String?
   email         String?   @unique
   emailVerified DateTime?
   image         String?
   major         String?
   phone         String?
   address       String?
+  avatar        String?
+  discriminator String?
+  username      String?
   apt           String?
   city          String?
   zipcode       Int?

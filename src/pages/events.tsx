@@ -1,11 +1,11 @@
+import React, { SyntheticEvent, useCallback, useState } from 'react';
 
-'use client'
+import Head from "@/components/Head";
+import Main from "@/components/Main";
 import TextInput from "@/components/TextLabel";
 import Button from "@/components/Button";
-import React from "react";
-import { SyntheticEvent, useCallback, useState } from "react";
 
-type eventItem = {
+type EventItem = {
   title: string,
   location: string,
   thumbnail: string,
@@ -15,10 +15,10 @@ type eventItem = {
   endTime: string,
   recurring: boolean,
   points: number
-  };
-  
-function eventForm() {
-  const [events, setEvent] = React.useState<eventItem>({
+};
+
+function EventForm() {
+  const [events, setEvent] = useState<EventItem>({
     title: "",
     location: "",
     thumbnail: "",
@@ -32,20 +32,26 @@ function eventForm() {
 
   const handleInput = useCallback((event: SyntheticEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
-    setEvent({
-      ...events,[target.name]: target.value
-    });
-    console.log(events);
+    switch(target.type) {
+      case "text":
+        setEvent({
+          ...events, [target.name]: target.value
+        });
+        break;
+      case "checkbox":
+        setEvent({
+          ...events, [target.name]: target.checked
+        });
+        break;
+      default:
+        throw new Error("Invalid event's type");
+    }
   }, [events]);
 
-  function handleClick(event: any){
-    // Object.keys(events).forEach(key => {
-    //   console.log(key, events[key]);
-    // })
+  const handleOnClick = () => {
     console.log(events);
   }
-  
-  
+
   return (
     <div>
       <h1>Add an Event</h1>
@@ -105,10 +111,12 @@ function eventForm() {
         value={events.endTime}
         onChange={handleInput}
       />
-
       <h2>Recurring?</h2>
-      <input className="recurringCheck" name="recurring"  type="checkbox"></input>
-      
+      <input
+        className="recurringCheck"
+        name="recurring"
+        onChange={handleInput}
+        type="checkbox"/>
       <TextInput
         name="points"
         label="Points"
@@ -117,11 +125,20 @@ function eventForm() {
         value={events.points}
         onChange={handleInput}
       />
-
-      <Button variant="outline" onClick={handleClick}>Create Event</Button>
+      <Button variant="outline" disableDebounce onClick={handleOnClick}>Create Event</Button>
     </div>
-    
   );
 }
 
-export default eventForm;
+function Events() {
+  return (
+    <>
+      <Head title="Events"/>
+      <Main>
+        <EventForm/>
+      </Main>
+    </>
+  );
+}
+
+export default Events;
