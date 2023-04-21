@@ -14,8 +14,46 @@ type EventItem = {
   startTime: string,
   endTime: string,
   recurring: boolean,
+  sunday: boolean,
+  monday: boolean,
+  tuesday: boolean,
+  wednesday: boolean,
+  thursday: boolean,
+  friday: boolean,
+  saturday: boolean,
   points: number
 };
+
+function RecurringDays(props: any)
+{
+  const {visible, events, handleInput} = props;
+  var inputType = "";
+  if(visible == true)
+    inputType = "checkbox";
+  else
+  {
+    inputType = "hidden";
+  }
+ 
+  return(
+    <div>
+      <p hidden={!visible}>Sunday</p>
+      <input type={inputType} name = "sunday" value={events.sunday} onChange={handleInput}/>
+      <p hidden={!visible}>Monday</p>
+      <input type={inputType} name = "monday" value={events.monday} onChange={handleInput}/>
+      <p hidden={!visible}>Tuesday</p>
+      <input type={inputType} name = "tuesday" value={events.tuesday} onChange={handleInput}/>
+      <p hidden={!visible}>Wednesday</p>
+      <input type={inputType} name = "wednesday" value={events.wednesday} onChange={handleInput}/>
+      <p hidden={!visible}>Thrusday</p>
+      <input type={inputType} name = "thursday" value={events.thursday} onChange={handleInput}/>
+      <p hidden={!visible}>Friday</p>
+      <input type={inputType} name = "friday" value={events.friday} onChange={handleInput}/>
+      <p hidden={!visible}>Saturday</p>
+      <input type={inputType} name = "saturday" value={events.saturday} onChange={handleInput}/>
+    </div>
+  );
+}
 
 function EventForm() {
   const [events, setEvent] = useState<EventItem>({
@@ -27,24 +65,29 @@ function EventForm() {
     startTime: "",
     endTime: "",
     recurring: false,
+    sunday: false,
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
     points: 0
   });
 
   const handleInput = useCallback((event: SyntheticEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     switch(target.type) {
-      case "text":
-        setEvent({
-          ...events, [target.name]: target.value
-        });
-        break;
       case "checkbox":
         setEvent({
           ...events, [target.name]: target.checked
         });
         break;
       default:
-        throw new Error("Invalid event's type");
+        setEvent({
+          ...events, [target.name]: target.value
+        });
+        break;
     }
   }, [events]);
 
@@ -117,6 +160,11 @@ function EventForm() {
         name="recurring"
         onChange={handleInput}
         type="checkbox"/>
+      <RecurringDays
+        visible ={events.recurring}
+        events = {events}
+        handleInput = {handleInput}
+      />
       <TextInput
         name="points"
         label="Points"
