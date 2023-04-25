@@ -75,7 +75,7 @@ export default function RootLayout({
           />
           <EventCard
           title="CKI Raid Night"
-          details="Eyes up Dangos! Come help your fellow members slay a king in Destiny 2 as we all try to navigate the dangers of King's Fall."
+          details="Eyes up Dangos! Come help your fellow members whack off."
           thumbnail={Zavala}
           tags="social"
           date= "5/7/2023"
