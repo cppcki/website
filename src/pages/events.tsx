@@ -24,33 +24,31 @@ type EventItem = {
   points: number
 };
 
-function RecurringDays(props: any)
-{
-  const {visible, events, handleInput} = props;
+function RecurringDays(props: any) {
+  const { visible, events, handleInput } = props;
   var inputType = "";
-  if(visible == true)
+  if (visible == true)
     inputType = "checkbox";
-  else
-  {
+  else {
     inputType = "hidden";
   }
- 
-  return(
+
+  return (
     <div>
       <p hidden={!visible}>Sunday</p>
-      <input type={inputType} name = "sunday" value={events.sunday} onChange={handleInput}/>
+      <input type={inputType} name="sunday" value={events.sunday} onChange={handleInput} />
       <p hidden={!visible}>Monday</p>
-      <input type={inputType} name = "monday" value={events.monday} onChange={handleInput}/>
+      <input type={inputType} name="monday" value={events.monday} onChange={handleInput} />
       <p hidden={!visible}>Tuesday</p>
-      <input type={inputType} name = "tuesday" value={events.tuesday} onChange={handleInput}/>
+      <input type={inputType} name="tuesday" value={events.tuesday} onChange={handleInput} />
       <p hidden={!visible}>Wednesday</p>
-      <input type={inputType} name = "wednesday" value={events.wednesday} onChange={handleInput}/>
+      <input type={inputType} name="wednesday" value={events.wednesday} onChange={handleInput} />
       <p hidden={!visible}>Thrusday</p>
-      <input type={inputType} name = "thursday" value={events.thursday} onChange={handleInput}/>
+      <input type={inputType} name="thursday" value={events.thursday} onChange={handleInput} />
       <p hidden={!visible}>Friday</p>
-      <input type={inputType} name = "friday" value={events.friday} onChange={handleInput}/>
+      <input type={inputType} name="friday" value={events.friday} onChange={handleInput} />
       <p hidden={!visible}>Saturday</p>
-      <input type={inputType} name = "saturday" value={events.saturday} onChange={handleInput}/>
+      <input type={inputType} name="saturday" value={events.saturday} onChange={handleInput} />
     </div>
   );
 }
@@ -77,7 +75,7 @@ function EventForm() {
 
   const handleInput = useCallback((event: SyntheticEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
-    switch(target.type) {
+    switch (target.type) {
       case "checkbox":
         setEvent({
           ...events, [target.name]: target.checked
@@ -159,11 +157,11 @@ function EventForm() {
         className="recurringCheck"
         name="recurring"
         onChange={handleInput}
-        type="checkbox"/>
+        type="checkbox" />
       <RecurringDays
-        visible ={events.recurring}
-        events = {events}
-        handleInput = {handleInput}
+        visible={events.recurring}
+        events={events}
+        handleInput={handleInput}
       />
       <TextInput
         name="points"
@@ -181,9 +179,9 @@ function EventForm() {
 function Events() {
   return (
     <>
-      <Head title="Events"/>
+      <Head title="Events" />
       <Main>
-        <EventForm/>
+        <EventForm />
       </Main>
     </>
   );
