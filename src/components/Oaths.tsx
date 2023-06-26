@@ -24,8 +24,6 @@ function OathItem(props: OathItemProps) {
           src={thumbnail}
           alt={`${title}_tenant`}
         />
-        {/* <h1 className="font-black text-5xl">
-        </h1> */}
         <h2 className="text-2xl font-normal first-letter:capitalize">{title}</h2>
         <p className="mt-2">{description}</p>
       </div>
