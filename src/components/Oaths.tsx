@@ -19,8 +19,8 @@ function OathItem(props: OathItemProps) {
         <Image
           draggable={false}
           className="aspect-square object-contain "
-          width={100}
-          height={100}
+          width={300}
+          height={300}
           src={thumbnail}
           alt={`${title}_tenant`}
         />
