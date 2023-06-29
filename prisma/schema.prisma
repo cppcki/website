@@ -78,3 +78,30 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Events{
+  id Int @id @default(autoincrement())
+  title String
+  description String?
+  thumbnail String?
+  startDate DateTime
+  endDate DateTime
+  recurring Recurring[]
+  tenants String
+  published Boolean
+}
+
+model Recurring{
+  id Events @relation(fields: [eventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  eventId Int @id
+  days Int
+  endsAt DateTime
+  cancel RecurringEventCancel []
+}
+
+ model RecurringEventCancel{
+  id Int @id @default(autoincrement())
+  event Recurring @relation(fields: [canceleventId], references: [eventId])
+  canceleventId Int 
+  day DateTime
+}
