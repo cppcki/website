@@ -21,7 +21,7 @@ type EventItem = {
   thursday: boolean,
   friday: boolean,
   saturday: boolean,
-  points: number
+  // points: number
 };
 
 function RecurringDays(props: any) {
@@ -70,7 +70,7 @@ function EventForm() {
     thursday: false,
     friday: false,
     saturday: false,
-    points: 0
+    // points: 0
   });
 
   const handleInput = useCallback((event: SyntheticEvent<HTMLInputElement>) => {
@@ -163,14 +163,14 @@ function EventForm() {
         events={events}
         handleInput={handleInput}
       />
-      <TextInput
+      {/* <TextInput
         name="points"
         label="Points"
         type="number"
         placeholder="Points"
         value={events.points}
         onChange={handleInput}
-      />
+      /> */}
       <Button variant="outline" disableDebounce onClick={handleOnClick}>Create Event</Button>
     </div>
   );
