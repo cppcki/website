@@ -76,16 +76,16 @@ function EventForm() {
   const handleInput = useCallback((event: SyntheticEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     switch (target.type) {
-      case "checkbox":
-        setEvent({
-          ...events, [target.name]: target.checked
-        });
-        break;
-      default:
-        setEvent({
-          ...events, [target.name]: target.value
-        });
-        break;
+    case "checkbox":
+      setEvent({
+        ...events, [target.name]: target.checked
+      });
+      break;
+    default:
+      setEvent({
+        ...events, [target.name]: target.value
+      });
+      break;
     }
   }, [events]);
 
