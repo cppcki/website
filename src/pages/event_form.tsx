@@ -4,6 +4,7 @@ import Head from "@/components/Head";
 import Main from "@/components/Main";
 import TextInput from "@/components/TextLabel";
 import Button from "@/components/Button";
+import Navbar from '@/components/Navbar';
 
 type EventItem = {
   title: string,
@@ -95,6 +96,7 @@ function EventForm() {
 
   return (
     <div>
+      <Navbar/>
       <h1>Add an Event</h1>
       <TextInput
         name="title"
