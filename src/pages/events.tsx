@@ -1,5 +1,14 @@
-export default function events() {
+import Head from "@/components/Head";
+import Main from "@/components/Main";
+import Navbar from '@/components/Navbar';
+
+function event() {
   return (
-    <p>No events yet</p>
-  );
+    <div>
+      <Navbar/>
+      No event yet
+    </div>
+  )
 }
+
+export default event;
