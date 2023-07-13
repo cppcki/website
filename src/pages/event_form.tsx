@@ -178,7 +178,7 @@ function EventForm() {
   );
 }
 
-function Events() {
+function Event_Form() {
   return (
     <>
       <Head title="Events" />
@@ -189,4 +189,4 @@ function Events() {
   );
 }
 
-export default Events;
+export default Event_Form;
