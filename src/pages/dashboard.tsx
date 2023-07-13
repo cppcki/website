@@ -45,6 +45,7 @@ function Dashboard(props: ContentProps) {
         />
         <p>{user.id}</p>
         <p>{user.email}</p>
+        <Button variant="outline" href="/event-form">Create event</Button>
         <Button variant="outline" onClick={handleOnSignOut}>sign out</Button>
       </main>
     </>
