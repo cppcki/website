@@ -181,7 +181,7 @@ function EventForm() {
 function Event_Form() {
   return (
     <>
-      <Head title="Events" />
+      <Head title="Event_Form" />
       <Main>
         <EventForm />
       </Main>
