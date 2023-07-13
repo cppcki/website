@@ -4,14 +4,14 @@ import Navbar from '@/components/Navbar';
 
 function event() {
   return (
-  <>
-    <Head title="Events"/>
-    <Main>
-      <Navbar/>
-      nothing
-    </Main>
+    <>
+      <Head title="Events"/>
+      <Main>
+        <Navbar/>
+        nothing
+      </Main>
     
-  </>
+    </>
   )
 }
 
