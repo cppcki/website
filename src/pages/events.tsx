@@ -1,18 +1,17 @@
 import Head from "@/components/Head";
 import Main from "@/components/Main";
-import Navbar from '@/components/Navbar';
+import Navbar from "@/components/Navbar";
 
-function event() {
+function Events() {
   return (
     <>
       <Head title="Events"/>
       <Main>
         <Navbar/>
-        nothing
+        Placeholder text
       </Main>
-    
     </>
-  )
+  );
 }
 
-export default event;
+export default Events;
