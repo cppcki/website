@@ -4,10 +4,14 @@ import Navbar from '@/components/Navbar';
 
 function event() {
   return (
-    <div>
+  <>
+    <Head title="Events"/>
+    <Main>
       <Navbar/>
-      No event yet
-    </div>
+      nothing
+    </Main>
+    
+  </>
   )
 }
 
