@@ -14,18 +14,18 @@ function Navbar(props: NavbarProps) {
       <Header/>
       <ul className="flex justify-center sm:justify-start gap-10 my-auto mt-5">
         <li>
-          <Button href="/about">about</Button>
+          <Button variant="outline" href="/about">About</Button>
         </li>
         <li>
-          <Button href="/events">events</Button> 
+          <Button variant="outline" href="/events">Events</Button> 
         </li>
-        <li>
+        {/* <li>
           <Button
             variant="outline"
             href={isLoggedIn ? "/dashboard": "/login"}>
             {isLoggedIn ? "portal" : "login"}
           </Button>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

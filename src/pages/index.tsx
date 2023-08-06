@@ -20,12 +20,15 @@ function Hero() {
         Become part of one of the largest collegiate community service, leadership development, and friendship organization in the world.
       </p>
       <div className="flex justify-center gap-x-10 my-10">
-        <Button variant="fill" href="/login" className="first-letter:capitalize">join us</Button>
-        <Button variant="outline" className="first-letter:capitalize">explore events</Button>
+        {/* <Button variant="fill" href="/login" className="first-letter:capitalize">join us</Button>  */}
+        <Button variant="outline" href="/events" className="first-letter:capitalize">explore events</Button>
       </div>
     </div>
   );
 }
+
+//Join us button goes to login page, ask if remove or add to club sign up sheet
+//Esplore events has no literal href attribute
 
 type EventItemProps = {
   title: string;
