@@ -8,7 +8,7 @@ function Events() {
       <Head title="Events"/>
       <Main>
         <Navbar/>
-        Placeholder text
+        Under Maintenance
       </Main>
     </>
   );
