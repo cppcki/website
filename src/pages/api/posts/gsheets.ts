@@ -1,18 +1,6 @@
 import { google } from "googleapis";
 
-type SheetData = {
-  title: string;
-  value: string;
-  date: string;
-  time: string;
-  location: string;
-}
-
-type Sheet = {
-  range: string;
-};
-
-export const getDataFromSheets = async (data: Sheet[]): Promise<SheetData[]> => {
+export async function getDataFromSheets() {
   try {
     const target = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
@@ -25,28 +13,21 @@ export const getDataFromSheets = async (data: Sheet[]): Promise<SheetData[]> => 
 
     const sheets = google.sheets({ version: 'v4', auth: jwt });
 
-    const response = await sheets.spreadsheets.values.batchGet({
+    const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.SPREADSHEET_ID,
-      ranges: data.map(({ range }) => `${process.env.SPREADSHEET_NAME}!${range}`),
+      range: process.env.SPREADSHEET_NAME,
     });
 
-    const rows = response.data.valueRanges?.map((range) => {
-      return range.values?.map((row) => {
-        return row;
-      });
-    });
-
-    const sheet = rows?.map((row) => {
-      return {
-        title: row![0][0].trim(),
-        value: row![1][0],
-      };
-    });
-
-    return sheet! as SheetData[];
+    const rows = response.data.values;
+    if (rows?.length) {
+      return rows.map((row) => ({
+        title: row[0],
+        description: row[1],
+      }));
+    }
   } catch (err) {
-    console.error(err);
+    console.log(err);
   }
 
   return [];
-};
+}
