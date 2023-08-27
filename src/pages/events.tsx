@@ -9,6 +9,7 @@ function EventPage() {
 
   let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);
 
+  let eventName
   fetch(FULL_URL)
   .then(res => res.text())
   .then(rep => {
@@ -16,13 +17,14 @@ function EventPage() {
     let rows = data.table.rows
     let length = rows.length;
 
-    console.log(rows)
-    console.log(rows[0].c[0].v)
+    //console.log(rows)
+    eventName = rows[0].c[0].v
+    console.log("Within Fetch: " + eventName)
+    
   })
-
   return (
     <div>
-      <p>Under Maintenance</p>
+      <p>Text: {eventName}</p>
     </div>
   )
 }
